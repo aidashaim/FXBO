@@ -1,68 +1,76 @@
 import 'package:flutter/material.dart';
 
 class AppTextField extends StatelessWidget {
-
   final String text;
   final String title;
-  final IconData ico;
+  final Image ico;
   final TextInputType type;
-  //final double relativeWidth;
-  //final bool enabled;
+  final bool isLast;
 
-  const AppTextField({@required
-    this.text,
-    this.title,
-    this.ico,
-    this.type
-    //this.relativeWidth,
-    //this.enabled = true
-  });
+  const AppTextField({@required this.text, this.title, this.ico, this.type, this.isLast});
 
   @override
   Widget build(BuildContext context) {
-
     final darkColor = Color(0xFF636363);
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title,
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-          SizedBox(height: 10.0),
-          Container(
-            alignment: Alignment.centerLeft,
-            height: 60.0,
-            child: TextField(
-              keyboardType: type,
-              style: Theme.of(context).textTheme.bodyText1,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all( Radius.circular(10.0)),
-                    borderSide: BorderSide(
-                      color: darkColor,
-                      width: 1.0,
-                    )
-                ),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all( Radius.circular(10.0)),
-                    borderSide: BorderSide(
-                      color: darkColor,
-                      width: 1.0,
-                    )
-                ),
-                contentPadding: EdgeInsets.only(top: 14.0),
-                prefixIcon: Icon(
-                  ico,
-                  color: darkColor,
-                ),
-                hintText: text,
-                hintStyle: Theme.of(context).textTheme.bodyText2,
-              ),
+
+    Widget _buildTextTF() {
+      if (title != null) {
+        return Padding (
+          padding: EdgeInsets.only(bottom: 20.0),
+          child: Text(
+          title,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+        );
+      } else {
+        return Container();
+      }
+    }
+
+    Widget _buildIcon() {
+      if (ico != null) {
+        return
+          null;//ico;
+
+      } else {
+        return null;
+      }
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _buildTextTF(),
+        Container(
+          alignment: Alignment.centerLeft,
+          child: TextField(
+            keyboardType: type,
+            style: Theme.of(context).textTheme.bodyText2,
+            decoration: InputDecoration(
+
+              alignLabelWithHint: true,
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderSide: BorderSide(
+                    color: darkColor,
+                    width: 1.0,
+                  )),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderSide: BorderSide(
+                    color: darkColor,
+                    width: 1.0,
+                  )),
+              contentPadding: EdgeInsets.fromLTRB( 20.0, 14.0, 0, 0),
+              prefixIcon: _buildIcon(),
+              hintText: text,
+              hintStyle: Theme.of(context).textTheme.bodyText2,
             ),
           ),
-          SizedBox(height: 20.0),
-        ],
-      );
+        ),
+        (isLast == true) ?
+            Container() : SizedBox(height: 20.0),
+      ],
+    );
   }
 }

@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 
 class AppDropDownButton extends StatefulWidget {
   final EdgeInsetsGeometry margin;
-
-  final Function onChanged;
-
   final String initialValue;
+  final List<String> itemsList;
+  final String hintText;
+  final Function onChanged;
+  final String title;
 
   const AppDropDownButton({
     this.margin = const EdgeInsets.all(0),
-    this.onChanged,
     this.initialValue,
+    this.itemsList,
+    this.hintText,
+    this.onChanged,
+    this.title,
   });
 
   @override
@@ -18,8 +22,8 @@ class AppDropDownButton extends StatefulWidget {
 }
 
 class AppDropDownButtonState extends State<AppDropDownButton> {
+  final darkColor = Color(0xFF636363);
   String value;
-  List<String> values = ['Мужской', 'Женский'];
 
   @override
   void initState() {
@@ -27,39 +31,52 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
     super.initState();
   }
 
+  Widget _buildTextTF() {
+    if (widget.title != null) {
+      return Padding (
+        padding: EdgeInsets.only(bottom: 20.0),
+        child: Text(
+          widget.title,
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+      );
+    } else {
+      return Container();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    var cont = Container(
-      padding: const EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0),
-      margin: widget.margin,
-      width: MediaQuery.of(context).size.width * 0.8,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      child: Center(
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton(
-            dropdownColor: Colors.white,
-            isExpanded: true,
-            style: Theme.of(context).textTheme.headline1,
-            value: value,
-            hint: Text('Пол'),
-            items: values.map((String value) {
-              return DropdownMenuItem(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-            onChanged: (String value) {
-              onChanged(value);
-            },
-          ),
-        ),
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        _buildTextTF(),
+        Container(
+            padding: EdgeInsets.only(left: 20.0),
+            decoration: BoxDecoration(
+              border: Border.all(color: darkColor, width: 1.0),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            width: double.infinity,
+            child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+              isExpanded: true,
+              hint: Text(widget.hintText,
+                  style: Theme.of(context).textTheme.bodyText2),
+              value: widget.initialValue,
+              onChanged: (String value) {
+                onChanged(value);
+              },
+              items: widget.itemsList.map((String _text) {
+                return DropdownMenuItem<String>(
+                  value: _text,
+                  child: Text(_text, style: Theme.of(context).textTheme.bodyText2),
+                );
+              }).toList(),
+            ))),
+        SizedBox(height: 20.0),
+      ],
     );
-
-    return _createImportantField(cont);
   }
 
   void onChanged(String value) {
@@ -67,23 +84,5 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
       this.value = value;
       widget.onChanged(value);
     });
-  }
-
-  Container _createImportantField(Widget textField) {
-    return Container(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            width: 10,
-            //child: Image(image: AssetImage('assets/important_field.png')),
-          ),
-          Expanded(child: textField),
-          Container(
-            width: 10,
-          ),
-        ],
-      ),
-    );
   }
 }

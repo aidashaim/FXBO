@@ -12,41 +12,6 @@ class SingInPage extends StatefulWidget {
 }
 
 class _SingInPageState extends State<SingInPage> {
-
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      alignment: Alignment.centerLeft,
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Container(
-            width: 25.0,
-            margin: EdgeInsets.only(right:20.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: Color(0xFF636363), width: 1.0),
-              borderRadius: BorderRadius.all( Radius.circular(3.0)),
-            ),
-
-           child: Checkbox(
-              value: true,//_rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  //_rememberMe = value;
-                });
-              },
-            ),
-
-          ),
-          Text(
-            'Remember me',
-            //style: labelStyle,
-          ),],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,52 +22,56 @@ class _SingInPageState extends State<SingInPage> {
           child: Stack(
             children: <Widget>[
               Container(
-                height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-              ),
-              Container(
-                height: double.infinity,
-                child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.0,
-                    vertical: 60.0,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      AppLogo(),
-                      AppTextField(title: 'Email', text: 'Enter your email address', ico: Icons.email, type: TextInputType.emailAddress),
-                      AppTextField(title: 'Password', text: 'Enter your password', ico: Icons.enhanced_encryption, type: TextInputType.emailAddress),
-                      Row(
-                         mainAxisAlignment: MainAxisAlignment.start,
-                         children: <Widget>[
-                           _buildRememberMeCheckbox(),
-                           //AppCheckBox(),//'Remember me'),
-                           AppLink(size: 14.0, text: 'Forgot Password?', onPressed: () {}),
-                      ]
-                  ),
-                      SizedBox(height: 60.0),
-                      AppButton(text: 'Login', onTap: () {}),
-                      SizedBox(height: 40.0),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                  height: double.infinity,
+                  child: SingleChildScrollView(
+                    physics: AlwaysScrollableScrollPhysics(),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20.0,
+                      vertical: 220.0,
+                    ),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
-                            'Dont have an account?',
-                            style: Theme.of(context).textTheme.bodyText1,
+                          AppLogo(),
+                          AppTextField(
+                              title: 'Email',
+                              text: 'Enter your email address',
+                              ico: Image.asset('asset/email.svg'),
+                              type: TextInputType.emailAddress),
+                          AppTextField(
+                            title: 'Password',
+                            text: 'Enter your password',
+                            ico: Image.asset('asset/email.svg'),
+                            type: TextInputType.emailAddress,
+                            isLast: true,
                           ),
-                          AppLink(size: 18.0, text: 'Sing up', onPressed: () {}),
-                        ]
-                      )
-                    ],
-                  ),
-                ),
-              )
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                AppCheckBox(text: 'Remember me'),
+                                AppLink(
+                                    fontSize: 16.0,
+                                    text: 'Forgot Password?',
+                                    onPressed: () {}),
+                              ]),
+                          SizedBox(height: 60.0),
+                          AppButton(text: 'Login', onTap: () {}),
+                          SizedBox(height: 40.0),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Text(
+                                  'Don' + "'" + 't have an account?',
+                                  style: Theme.of(context).textTheme.bodyText1,
+                                ),
+                                AppLink(
+                                    fontSize: 18.0,
+                                    text: 'Sing up',
+                                    onPressed: () {}),
+                              ])
+                        ]),
+                  )),
             ],
           ),
         ),

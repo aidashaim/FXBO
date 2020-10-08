@@ -22,25 +22,18 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             children: <Widget>[
               Container(
                 height: double.infinity,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-              ),
-              Container(
-                height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 20.0,
-                    vertical: 60.0,
+                    vertical: 220.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       AppLogo(),
-                      AppTextField(title: 'Forgot Password', text: 'Enter your email address', ico: Icons.email, type: TextInputType.emailAddress),
+                      AppTextField(title: 'Forgot Password', text: 'Enter your email address', ico: Image.asset('assets/email.svg'), type: TextInputType.emailAddress),
                       AppButton(text: 'Continue', onTap: () {}),
                     ],
                   ),

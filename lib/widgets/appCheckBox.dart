@@ -1,46 +1,40 @@
 import 'package:flutter/material.dart';
 
-/*class AppCheckBox extends StatefulWidget {
+class AppCheckBox extends StatefulWidget {
   final String text;
 
-  const AppCheckBox(
-      this.text,
-      );
+  const AppCheckBox({
+    this.text,
+  });
 
   @override
   _AppCheckBoxState createState() => _AppCheckBoxState();
 }
 
 class _AppCheckBoxState extends State<AppCheckBox> {
-
-  bool chValue=false;
+  final darkColor = Color(0xFF636363);
+  bool chValue = false;
 
   @override
   Widget build(BuildContext context) {
-
-    return Container(
-      height: 20.0,
-      child: Row(
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Theme(
-            //data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: chValue,
-              checkColor: Color(0xFF636363),
-              activeColor: Theme.of(context).primaryColor,
-              onChanged: (bool value) {
-                setState(() {
-                  chValue = value;
-                });
-              },
-            ),
+          Checkbox(
+            value: chValue,
+            checkColor: Theme.of(context).primaryColor,
+            activeColor: Colors.white,
+            onChanged: (_value) {
+              setState(() {
+                chValue = _value;
+              });
+            },
           ),
           Text(
-            'as',//widget.text,
-            style: TextStyle(fontSize: 14.0, color: Color(0xFF636363)),
+            widget.text,
+            style: TextStyle(fontSize: 16.0, color: darkColor),
           ),
         ],
-      ),
     );
   }
-} */
+}
