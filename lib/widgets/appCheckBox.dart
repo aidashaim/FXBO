@@ -17,24 +17,23 @@ class _AppCheckBoxState extends State<AppCheckBox> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Checkbox(
-            value: chValue,
-            checkColor: Theme.of(context).primaryColor,
-            activeColor: Colors.white,
-            onChanged: (_value) {
-              setState(() {
-                chValue = _value;
-              });
-            },
-          ),
-          Text(
-            widget.text,
-            style: TextStyle(fontSize: 16.0, color: darkColor),
-          ),
-        ],
+    return CheckboxListTile(
+      contentPadding: EdgeInsets.zero,
+      controlAffinity: ListTileControlAffinity.leading,
+      value: chValue,
+      onChanged: (_value) {
+        setState(() {
+          chValue = _value;
+        });
+      },
+      title: Text(
+        widget.text,
+        style: TextStyle(
+          fontSize: 12.0,
+          color: darkColor,
+          fontWeight: FontWeight.w400
+        ),
+      ),
     );
   }
 }

@@ -59,21 +59,28 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
             ),
             width: double.infinity,
             child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+            child: DropdownButton<String>(
               isExpanded: true,
-              hint: Text(widget.hintText,
-                  style: Theme.of(context).textTheme.bodyText2),
+              hint: Text(
+                widget.hintText,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
+              style: TextStyle(color: Color(0xFF303030)),
               value: widget.initialValue,
               onChanged: (String value) {
                 onChanged(value);
               },
-              items: widget.itemsList.map((String _text) {
-                return DropdownMenuItem<String>(
-                  value: _text,
-                  child: Text(_text, style: Theme.of(context).textTheme.bodyText2),
-                );
-              }).toList(),
-            ))),
+              items: widget.itemsList.map(
+                (String _text) {
+                  return DropdownMenuItem<String>(
+                    value: _text,
+                    child: Text(_text, style: Theme.of(context).textTheme.bodyText2),
+                  );
+                },
+              ).toList(),
+            ),
+          ),
+        ),
         SizedBox(height: 20.0),
       ],
     );

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fxbo/pages/forgot_password/forgotPasswordPage.dart';
+import 'package:fxbo/pages/sing_up/singUpPage.dart';
 import 'package:fxbo/widgets/appButton.dart';
 import 'package:fxbo/widgets/appCheckBox.dart';
-import 'package:fxbo/widgets/appLink.dart';
 import 'package:fxbo/widgets/appLogo.dart';
 import 'package:fxbo/widgets/appTextField.dart';
 
@@ -15,63 +16,95 @@ class _SingInPageState extends State<SingInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Stack(
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(
+            horizontal: 20.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                  height: double.infinity,
-                  child: SingleChildScrollView(
-                    physics: AlwaysScrollableScrollPhysics(),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20.0,
-                      vertical: 220.0,
+              AppLogo(),
+              AppTextField(
+                title: 'Email',
+                text: 'Enter your email address',
+                leading: Icon(
+                  Icons.email,
+                  color: Color(0xFF636363),
+                ),
+                type: TextInputType.emailAddress,
+              ),
+              AppTextField(
+                title: 'Password',
+                text: 'Enter your password',
+                leading: Icon(
+                  Icons.lock,
+                  color: Color(0xFF636363),
+                ),
+                type: TextInputType.emailAddress,
+                isLast: true,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    child: AppCheckBox(text: 'Remember me'),
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xFF58BE3F),
+                      ),
                     ),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          AppLogo(),
-                          AppTextField(
-                              title: 'Email',
-                              text: 'Enter your email address',
-                              ico: Image.asset('asset/email.svg'),
-                              type: TextInputType.emailAddress),
-                          AppTextField(
-                            title: 'Password',
-                            text: 'Enter your password',
-                            ico: Image.asset('asset/email.svg'),
-                            type: TextInputType.emailAddress,
-                            isLast: true,
-                          ),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                AppCheckBox(text: 'Remember me'),
-                                AppLink(
-                                    fontSize: 16.0,
-                                    text: 'Forgot Password?',
-                                    onPressed: () {}),
-                              ]),
-                          SizedBox(height: 60.0),
-                          AppButton(text: 'Login', onTap: () {}),
-                          SizedBox(height: 40.0),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: <Widget>[
-                                Text(
-                                  'Don' + "'" + 't have an account?',
-                                  style: Theme.of(context).textTheme.bodyText1,
-                                ),
-                                AppLink(
-                                    fontSize: 18.0,
-                                    text: 'Sing up',
-                                    onPressed: () {}),
-                              ])
-                        ]),
-                  )),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ForgotPasswordPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              AppButton(
+                text: 'Login',
+                onTap: () {},
+              ),
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Don\'t have an account?',
+                    style: Theme.of(context).textTheme.bodyText1.merge(TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                        )),
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Sing up',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF58BE3F),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => SingUpPage(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              )
             ],
           ),
         ),

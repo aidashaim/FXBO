@@ -14,31 +14,25 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.light,
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Stack(
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SingleChildScrollView(
+          physics: AlwaysScrollableScrollPhysics(),
+          padding: EdgeInsets.symmetric(
+            horizontal: 20.0,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                height: double.infinity,
-                child: SingleChildScrollView(
-                  physics: AlwaysScrollableScrollPhysics(),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.0,
-                    vertical: 220.0,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      AppLogo(),
-                      AppTextField(title: 'Forgot Password', text: 'Enter your email address', ico: Image.asset('assets/email.svg'), type: TextInputType.emailAddress),
-                      AppButton(text: 'Continue', onTap: () {}),
-                    ],
-                  ),
-                ),
-              )
+              AppLogo(),
+              AppTextField(
+                title: 'Forgot Password',
+                text: 'Enter your email address',
+                leading: Icon(Icons.email),
+                type: TextInputType.emailAddress,
+              ),
+              AppButton(text: 'Continue', onTap: () {}),
             ],
           ),
         ),

@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 class AppTextField extends StatelessWidget {
   final String text;
   final String title;
-  final Image ico;
+  final Widget leading;
   final TextInputType type;
   final bool isLast;
 
-  const AppTextField({@required this.text, this.title, this.ico, this.type, this.isLast});
+  const AppTextField({
+    @required this.text,
+    this.title,
+    this.leading,
+    this.type,
+    this.isLast = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,25 +21,15 @@ class AppTextField extends StatelessWidget {
 
     Widget _buildTextTF() {
       if (title != null) {
-        return Padding (
-          padding: EdgeInsets.only(bottom: 20.0),
+        return Padding(
+          padding: EdgeInsets.only(bottom: 12.0),
           child: Text(
-          title,
-          style: Theme.of(context).textTheme.bodyText1,
-        ),
+            title,
+            style: Theme.of(context).textTheme.bodyText1,
+          ),
         );
       } else {
         return Container();
-      }
-    }
-
-    Widget _buildIcon() {
-      if (ico != null) {
-        return
-          null;//ico;
-
-      } else {
-        return null;
       }
     }
 
@@ -47,29 +43,32 @@ class AppTextField extends StatelessWidget {
             keyboardType: type,
             style: Theme.of(context).textTheme.bodyText2,
             decoration: InputDecoration(
-
               alignLabelWithHint: true,
               enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(
-                    color: darkColor,
-                    width: 1.0,
-                  )),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(
+                  color: darkColor,
+                  width: 1.0,
+                ),),
               focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(
-                    color: darkColor,
-                    width: 1.0,
-                  )),
-              contentPadding: EdgeInsets.fromLTRB( 20.0, 14.0, 0, 0),
-              prefixIcon: _buildIcon(),
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderSide: BorderSide(
+                  color: darkColor,
+                  width: 1.0,
+                ),),
+              contentPadding: EdgeInsets.fromLTRB(20.0, 14.0, 0, 0),
+              prefixIcon: leading,
               hintText: text,
-              hintStyle: Theme.of(context).textTheme.bodyText2,
+              hintStyle: Theme
+                  .of(context)
+                  .textTheme
+                  .bodyText2,
             ),
           ),
         ),
-        (isLast == true) ?
-            Container() : SizedBox(height: 20.0),
+        isLast
+            ? Container()
+            : SizedBox(height: 20.0),
       ],
     );
   }
