@@ -33,11 +33,11 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
 
   Widget _buildTextTF() {
     if (widget.title != null) {
-      return Padding (
-        padding: EdgeInsets.only(bottom: 20.0),
+      return Padding(
+        padding: EdgeInsets.only(bottom: 12.0),
         child: Text(
           widget.title,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.headline1,
         ),
       );
     } else {
@@ -52,18 +52,21 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
       children: <Widget>[
         _buildTextTF(),
         Container(
-            padding: EdgeInsets.only(left: 20.0),
-            decoration: BoxDecoration(
-              border: Border.all(color: darkColor, width: 1.0),
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            width: double.infinity,
-            child: DropdownButtonHideUnderline(
+          padding: EdgeInsets.only(left: 20.0),
+          decoration: BoxDecoration(
+            border: Border.all(color: darkColor, width: 1.0),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          width: double.infinity,
+          child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
               isExpanded: true,
               hint: Text(
                 widget.hintText,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2
+                    .merge(TextStyle(color: Color(0xFF9E9E9E))),
               ),
               style: TextStyle(color: Color(0xFF303030)),
               value: widget.initialValue,
@@ -74,7 +77,8 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
                 (String _text) {
                   return DropdownMenuItem<String>(
                     value: _text,
-                    child: Text(_text, style: Theme.of(context).textTheme.bodyText2),
+                    child: Text(_text,
+                        style: Theme.of(context).textTheme.headline2),
                   );
                 },
               ).toList(),

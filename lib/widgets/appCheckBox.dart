@@ -28,11 +28,7 @@ class _AppCheckBoxState extends State<AppCheckBox> {
       },
       title: Text(
         widget.text,
-        style: TextStyle(
-          fontSize: 12.0,
-          color: darkColor,
-          fontWeight: FontWeight.w400
-        ),
+        style: Theme.of(context).textTheme.headline1.merge(TextStyle(fontSize: 13.0)),
       ),
     );
   }

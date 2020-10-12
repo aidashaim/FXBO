@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fxbo/dialog/dialog.dart';
+import 'package:fxbo/pages/account/Account.dart';
+import 'package:fxbo/pages/account_details/AccountDetails.dart';
+import 'package:fxbo/pages/create_account/CreateAccountPage.dart';
+import 'package:fxbo/pages/forgot_password/forgotPasswordPage.dart';
+import 'package:fxbo/pages/messages/MessagesPage.dart';
 import 'package:fxbo/pages/sing_in/singInPage.dart';
+import 'package:fxbo/pages/sing_up/singUpPage.dart';
+import 'package:fxbo/pages/upload_new_documents/UploadNewDocuments.dart';
+import 'package:fxbo/pages/upload_payment_details/UploadPaymentDetails.dart';
+import 'package:fxbo/pages/uploaded_payment_details/UploadedPaymentDetails.dart';
+import 'package:fxbo/pages/withdraw_funds/WithdrawFunds.dart';
+import 'package:fxbo/pages/withdraw_funds_2/WithdrawFunds2.dart';
+import 'package:fxbo/widgets/appListView.dart';
+import 'package:fxbo/widgets/bottomAppBarWidget.dart';
 
 void main() => {runApp(MyApp())};
 
@@ -30,13 +44,13 @@ class MyAppState extends State<MyApp> {
         splashColor: Color(0xFF5CBC47),
         buttonColor: Color(0xFF5CBC47),
         textTheme: TextTheme(
-          headline5: TextStyle(fontSize: 20.0, color: Color(0xFF636363)),
-          headline4: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: Color(0xFF636363)),
-          headline3: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: Color(0xFF636363)),
-          headline2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700, color: Color(0xFF636363)),
-          headline1: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w500, color: Color(0xFF636363)),
-          subtitle1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: Color(0xFF636363)),
-          headline6: TextStyle(color: Colors.white, letterSpacing: 1.5, fontSize: 18.0, fontWeight: FontWeight.bold),
+          headline1: TextStyle(fontFamily: 'Poppins', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.2, letterSpacing: 0, color: Color(0xFF303030)),
+          headline2: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.2, letterSpacing: 0, color: Color(0xFF303030)),
+          headline3: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.2, letterSpacing: 0, color: Color(0xFFFFFFFF)),
+          headline4: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 17.0, height: 1.15, letterSpacing: 0.34, color: Color(0xFFFFFFFF)),
+          headline5: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.15, letterSpacing: 0.34, color: Color(0xFF636363)),
+          headline6: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 20.0, height: 0.9, letterSpacing: 0, color: Color(0xFFFFFFFF)),
+          subtitle1: TextStyle(fontFamily: 'Nunito-bold', fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, fontSize: 15.0, height: 1.5, letterSpacing: 0, color: Color(0xFF303030)),
           // Button Text
           bodyText2: TextStyle(fontSize: 15.0, color: Theme.of(context).hintColor),
           // Hint
@@ -44,7 +58,7 @@ class MyAppState extends State<MyApp> {
           // TextField Title
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF636363)),
         ),
-        accentTextTheme: TextTheme(
+        /*accentTextTheme: TextTheme(
           headline5: TextStyle(fontSize: 20.0, color: Theme.of(context).accentColor),
           headline4: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: Color(0xFF5CBC47)),
           headline3: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: Color(0xFF5CBC47)),
@@ -55,7 +69,7 @@ class MyAppState extends State<MyApp> {
           bodyText2: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
           bodyText1: TextStyle(fontSize: 14.0, color: Color(0xFF5CBC47)),
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
-        ),
+        ),*/
       ),
       home: SingInPage(),
     );

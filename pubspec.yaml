@@ -19,4 +19,25 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/email.svg
+    - assets/closeIcon.png
+    - assets/plusIcon.png
+    - assets/plusButton.png
+    - assets/messageIcon.png
+    - assets/depositIcon.png
+    - assets/uploadIcon.png
+    - assets/passwordIcon.png
+    - assets/emailIcon.png
+
+  fonts:
+    - family: Montserrat
+      fonts:
+      - asset: assets/montserrat.ttf
+    - family: Poppins
+      fonts:
+      - asset: assets/poppins.ttf
+    - family: Nunito
+      fonts:
+      - asset: assets/nunito.ttf
+    - family: Nunito-Bold
+      fonts:
+      - asset: assets/nunito-bold.ttf

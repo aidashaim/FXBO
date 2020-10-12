@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppButton extends StatelessWidget {
-
   final String text;
   final Function onTap;
 
@@ -23,8 +22,8 @@ class AppButton extends StatelessWidget {
         color: Theme.of(context).buttonColor,
         child: Text(
           text,
-          style: Theme.of(context).textTheme.headline6.merge(
-                TextStyle(fontSize: 15),
+          style: Theme.of(context).textTheme.headline3.merge(
+                TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
               ),
         ),
       ),
