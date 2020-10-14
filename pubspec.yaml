@@ -27,6 +27,7 @@ flutter:
     - assets/uploadIcon.png
     - assets/passwordIcon.png
     - assets/emailIcon.png
+    - assets/logo.png
 
   fonts:
     - family: Montserrat

@@ -53,7 +53,7 @@ class _WithdrawFundsPageState extends State<WithdrawFundsPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomButton(onTap: (){},),
+      bottomNavigationBar: BottomButton(text: 'Continue', onTap: (){},),
     );
   }
 }

@@ -5,7 +5,7 @@ class AppDropDownButton extends StatefulWidget {
   final String initialValue;
   final List<String> itemsList;
   final String hintText;
-  final Function onChanged;
+  //final Function onChanged;
   final String title;
 
   const AppDropDownButton({
@@ -13,7 +13,7 @@ class AppDropDownButton extends StatefulWidget {
     this.initialValue,
     this.itemsList,
     this.hintText,
-    this.onChanged,
+    //this.onChanged,
     this.title,
   });
 
@@ -69,15 +69,18 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
                     .merge(TextStyle(color: Color(0xFF9E9E9E))),
               ),
               style: TextStyle(color: Color(0xFF303030)),
-              value: widget.initialValue,
+              value: value,
               onChanged: (String value) {
-                onChanged(value);
+                this.value = value;
+                setState(() {
+
+                });
               },
               items: widget.itemsList.map(
-                (String _text) {
-                  return DropdownMenuItem<String>(
-                    value: _text,
-                    child: Text(_text,
+                (String value) {
+                  return DropdownMenuItem(
+                    value: value,
+                    child: Text(value,
                         style: Theme.of(context).textTheme.headline2),
                   );
                 },
@@ -88,12 +91,5 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
         SizedBox(height: 20.0),
       ],
     );
-  }
-
-  void onChanged(String value) {
-    setState(() {
-      this.value = value;
-      widget.onChanged(value);
-    });
   }
 }

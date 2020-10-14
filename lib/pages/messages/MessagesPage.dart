@@ -36,10 +36,7 @@ class _MessagesPageState extends State<MessagesPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBarWidget(
-        onTapDeposit: () {},
-        onTapMessage: () {},
-      ),
+      bottomNavigationBar: BottomAppBarWidget(),
       floatingActionButton: FloatingButtonWidget(
         onTapPlus: () {},
       ),

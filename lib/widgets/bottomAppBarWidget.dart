@@ -1,51 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/messages/MessagesPage.dart';
+import 'package:fxbo/pages/withdraw_funds/WithdrawFunds.dart';
 
 //////// BottomAppBar c 3 кнопками
 class BottomAppBarWidget extends StatelessWidget {
-  final Function onTapDeposit;
+  /*final Function onTapDeposit;
   final Function onTapMessage;
 
   const BottomAppBarWidget({
     @required this.onTapDeposit,
     this.onTapMessage,
-  });
+  });*/
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Column(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(30.0, 0.0, 15.0, 10.0),
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.0),
-                  child: IconButton(
-                    icon: Image.asset('assets/depositIcon.png'),
-                    onPressed: onTapDeposit,
-
-                  ),
+                IconButton(
+                  icon: Image.asset('assets/depositIcon.png', width: 55.0),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MessagesPage())),
                 ),
-                Text('Deposit', style: Theme.of(context).textTheme.headline2,),
+                Text(
+                  'Deposit',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .merge(TextStyle(height: 0.3)),
+                ),
               ],
             ),
-            Column(
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30.0, 0.0, 15.0, 10.0),
+            child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.0),
-                  child: IconButton(
-                    icon: Image.asset('assets/messageIcon.png',),
-                    onPressed: onTapMessage,
-                  ),
+                IconButton(
+                  icon: Image.asset('assets/messageIcon.png', width: 35.0),
+                  onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WithdrawFundsPage())),
                 ),
-                Text('Messages', style: Theme.of(context).textTheme.headline2,),
+                Text(
+                  'Messages',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .merge(TextStyle(height: 0.3)),
+                ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -60,8 +77,8 @@ class FloatingButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-        onPressed: onTapPlus,
-        child: Image.asset('assets/plusButton.png',)
+      onPressed: onTapPlus,
+      child: Image.asset('assets/plusButton.png'),
     );
   }
 }
@@ -89,8 +106,10 @@ class BottomButton extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(0.0, 21.0, 0.0, 15.0),
               color: mainColor,
               onPressed: onTap,
-              child:
-              Text(text.toUpperCase(), style: Theme.of(context).textTheme.headline6,),
+              child: Text(
+                text.toUpperCase(),
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
           ),
         ],
@@ -126,8 +145,10 @@ class BottomTwoButton extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(0.0, 21.0, 0.0, 15.0),
               color: Color(0xFF636363),
               onPressed: onTapBack,
-              child:
-              Text(text.toUpperCase(), style: Theme.of(context).textTheme.headline6,),
+              child: Text(
+                text.toUpperCase(),
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
           ),
           Expanded(
@@ -135,8 +156,10 @@ class BottomTwoButton extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(0.0, 21.0, 0.0, 15.0),
               color: mainColor,
               onPressed: onTapContinue,
-              child:
-              Text(text2.toUpperCase(), style: Theme.of(context).textTheme.headline6,),
+              child: Text(
+                text2.toUpperCase(),
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
           ),
         ],

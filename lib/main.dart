@@ -71,7 +71,7 @@ class MyAppState extends State<MyApp> {
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
         ),*/
       ),
-      home: SingInPage(),
+      home: MessagesPage(),
     );
   }
 }

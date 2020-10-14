@@ -11,19 +11,7 @@ class AppLogo extends StatelessWidget {
       alignment: Alignment.topRight,
       width: double.infinity,
       //margin: EdgeInsets.only(bottom: 60.0),
-      child: RichText(
-        text: TextSpan(children: <TextSpan>[
-          TextSpan(
-              text: 'BACK OFFICE\n',
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1
-                  .merge(TextStyle(fontSize: 33.7, color: Colors.white))),
-          TextSpan(
-              text: 'The Ultimate Forex CRM',
-              style: Theme.of(context).textTheme.headline6),
-        ]),
-      ),
+      child: Image.asset('assets/logo.png'),
     );
   }
 }
