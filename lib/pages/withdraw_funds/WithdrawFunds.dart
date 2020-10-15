@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/account_details/AccountDetails.dart';
 import 'package:fxbo/widgets/appBarWidget.dart';
 import 'package:fxbo/widgets/appDrawer.dart';
 import 'package:fxbo/widgets/appDropDownButton.dart';
@@ -53,7 +54,7 @@ class _WithdrawFundsPageState extends State<WithdrawFundsPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomButton(text: 'Continue', onTap: (){},),
+      bottomNavigationBar: BottomButton(text: 'Continue', onTap: () {}),
     );
   }
 }

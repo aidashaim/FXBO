@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/withdraw_funds/WithdrawFunds.dart';
 import 'package:fxbo/widgets/appBarWidget.dart';
 import 'package:fxbo/widgets/appDrawer.dart';
 import 'package:fxbo/widgets/bottomAppBarWidget.dart';
@@ -47,7 +48,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                     borderRadius: BorderRadius.circular(20.0),
                     gradient: new LinearGradient(
                         colors: [
-                          const Color(0xFF9BF977),
+                          const Color(0xFF99F26E),
                           mainColor,
                         ],
                         begin: const FractionalOffset(0.0, 0.0),
@@ -57,23 +58,43 @@ class _AccountDetailsState extends State<AccountDetails> {
                   ),
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   width: double.maxFinite,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 20.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          'Your account 7 \nhas been successfully created',
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headline6,
+                  height: 120.0,
+                  child: Stack(
+                    children: [
+                      ClipPath(
+                        clipper: ClippingClass(),
+                        child: Container(
+                          color: Colors.white.withOpacity(0.15),
                         ),
-                        SizedBox(height: 15.0),
-                        Image.asset(
-                          'assets/plusIcon.png',
-                          height: 30.0,
-                          color: Colors.white,
+                      ),
+                      ClipPath(
+                        clipper: Clipping2Class(),
+                        child: Container(
+                          color: Colors.white.withOpacity(0.15),
                         ),
-                      ],
-                    ),
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 20.0),
+                          child: Column(
+                            children: [
+                              Text(
+                                'Your account 7 \nhas been successfully created',
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                              SizedBox(height: 15.0),
+                              Image.asset(
+                                'assets/plusIcon.png',
+                                height: 30.0,
+                                color: Colors.white,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 30.0),
@@ -171,7 +192,9 @@ class _AccountDetailsState extends State<AccountDetails> {
                     ],
                   ),
                 ),
-                SizedBox(height: 100.0,),
+                SizedBox(
+                  height: 100.0,
+                ),
               ],
             ),
           ),
@@ -204,4 +227,36 @@ class _AccountDetailsState extends State<AccountDetails> {
       ]),
     );
   }
+}
+
+class Clipping2Class extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(0.0, 100.0);
+    path.quadraticBezierTo(130.0, 80.0, 110.0, 0.0);
+    path.lineTo(0.0, 0.0);
+    path.lineTo(0.0, 120.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class ClippingClass extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(60.0, 120.0);
+    path.quadraticBezierTo(130.0, 80.0, 70.0, 0.0);
+    path.lineTo(0.0, 0.0);
+    path.lineTo(0.0, 120.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

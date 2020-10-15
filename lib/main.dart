@@ -26,7 +26,6 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,17 +43,70 @@ class MyAppState extends State<MyApp> {
         splashColor: Color(0xFF5CBC47),
         buttonColor: Color(0xFF5CBC47),
         textTheme: TextTheme(
-          headline1: TextStyle(fontFamily: 'Poppins', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.2, letterSpacing: 0, color: Color(0xFF303030)),
-          headline2: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.2, letterSpacing: 0, color: Color(0xFF303030)),
-          headline3: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.2, letterSpacing: 0, color: Color(0xFFFFFFFF)),
-          headline4: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 17.0, height: 1.15, letterSpacing: 0.34, color: Color(0xFFFFFFFF)),
-          headline5: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 15.0, height: 1.15, letterSpacing: 0.34, color: Color(0xFF636363)),
-          headline6: TextStyle(fontFamily: 'Nunito', fontStyle: FontStyle.normal, fontWeight: FontWeight.normal, fontSize: 20.0, height: 0.9, letterSpacing: 0, color: Color(0xFFFFFFFF)),
-          subtitle1: TextStyle(fontFamily: 'Nunito-bold', fontStyle: FontStyle.normal, fontWeight: FontWeight.bold, fontSize: 15.0, height: 1.5, letterSpacing: 0, color: Color(0xFF303030)),
+          headline1: TextStyle(
+              fontFamily: 'Poppins',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              fontSize: 15.0,
+              height: 1.2,
+              letterSpacing: 0,
+              color: Color(0xFF303030)),
+          headline2: TextStyle(
+              fontFamily: 'Nunito',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              fontSize: 15.0,
+              height: 1.2,
+              letterSpacing: 0,
+              color: Color(0xFF303030)),
+          headline3: TextStyle(
+              fontFamily: 'Nunito',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              fontSize: 15.0,
+              height: 1.2,
+              letterSpacing: 0,
+              color: Color(0xFFFFFFFF)),
+          headline4: TextStyle(
+              fontFamily: 'Nunito',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              fontSize: 17.0,
+              height: 1.15,
+              letterSpacing: 0.34,
+              color: Color(0xFFFFFFFF)),
+          headline5: TextStyle(
+              fontFamily: 'Nunito',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              fontSize: 15.0,
+              height: 1.15,
+              letterSpacing: 0.34,
+              color: Color(0xFF636363)),
+          headline6: TextStyle(
+              fontFamily: 'Nunito',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.normal,
+              fontSize: 20.0,
+              height: 0.9,
+              letterSpacing: 0,
+              color: Color(0xFFFFFFFF)),
+          subtitle1: TextStyle(
+              fontFamily: 'Nunito-bold',
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.bold,
+              fontSize: 15.0,
+              height: 1.5,
+              letterSpacing: 0,
+              color: Color(0xFF303030)),
           // Button Text
-          bodyText2: TextStyle(fontSize: 15.0, color: Theme.of(context).hintColor),
+          bodyText2:
+              TextStyle(fontSize: 15.0, color: Theme.of(context).hintColor),
           // Hint
-          bodyText1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700, color: Color(0xFF636363)),
+          bodyText1: TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFF636363)),
           // TextField Title
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF636363)),
         ),

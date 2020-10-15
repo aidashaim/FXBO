@@ -47,7 +47,7 @@ class _AccountState extends State<Account> {
                       borderRadius: BorderRadius.circular(20.0),
                       gradient: new LinearGradient(
                           colors: [
-                            const Color(0xFF9BF977),
+                            const Color(0xFF99F26E),
                             mainColor,
                           ],
                           begin: const FractionalOffset(0.0, 0.0),
@@ -57,25 +57,51 @@ class _AccountState extends State<Account> {
                     ),
                     margin: EdgeInsets.symmetric(vertical: 20.0),
                     width: double.maxFinite,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 35.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Balance',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline1.merge(
-                                TextStyle(fontSize: 25.0, color: Colors.white)),
+                    height: 140.0,
+                    child: Stack(
+                      children: [
+                        ClipPath(
+                          clipper: ClippingClass(),
+                          child: Container(
+                            color: Colors.white.withOpacity(0.15),
                           ),
-                          SizedBox(height: 10.0),
-                          Text(
-                            '1,000.00',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headline1.merge(
-                                TextStyle(fontSize: 42.0, color: Colors.white)),
+                        ),
+                        ClipPath(
+                          clipper: Clipping2Class(),
+                          child: Container(
+                            color: Colors.white.withOpacity(0.15),
                           ),
-                        ],
-                      ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 30.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'Balance',
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline1
+                                      .merge(TextStyle(
+                                          fontSize: 25.0, color: Colors.white)),
+                                ),
+                                SizedBox(height: 10.0),
+                                Text(
+                                  '1,000.00',
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headline1
+                                      .merge(TextStyle(
+                                          fontSize: 42.0, color: Colors.white)),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 60.0),
@@ -173,7 +199,9 @@ class _AccountState extends State<Account> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 100.0,)
+                  SizedBox(
+                    height: 100.0,
+                  )
                 ],
               ),
             ),
@@ -184,4 +212,36 @@ class _AccountState extends State<Account> {
       ),
     );
   }
+}
+
+class Clipping2Class extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(0.0, 100.0);
+    path.quadraticBezierTo(130.0, 80.0, 110.0, 0.0);
+    path.lineTo(0.0, 0.0);
+    path.lineTo(0.0, 120.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class ClippingClass extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(60.0, 140.0);
+    path.quadraticBezierTo(130.0, 80.0, 70.0, 0.0);
+    path.lineTo(0.0, 0.0);
+    path.lineTo(0.0, 140.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
