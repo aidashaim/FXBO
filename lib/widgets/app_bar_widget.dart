@@ -12,7 +12,12 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title.toUpperCase(), style: Theme.of(context).textTheme.headline2.merge(TextStyle(fontSize: 17.0)),),
+      title: Text(
+        title.toUpperCase(),
+        style: Theme.of(context).textTheme.headline2.merge(
+              TextStyle(fontSize: 17.0),
+            ),
+      ),
       backgroundColor: Colors.white,
       shadowColor: Colors.transparent,
     );

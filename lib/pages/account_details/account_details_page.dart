@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:fxbo/pages/withdraw_funds/WithdrawFunds.dart';
-import 'package:fxbo/widgets/appBarWidget.dart';
-import 'package:fxbo/widgets/appDrawer.dart';
-import 'package:fxbo/widgets/bottomAppBarWidget.dart';
+import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_drawer.dart';
+import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
-class AccountDetails extends StatefulWidget {
+class AccountDetailsPage extends StatefulWidget {
   @override
-  _AccountDetailsState createState() => _AccountDetailsState();
+  _AccountDetailsPageState createState() => _AccountDetailsPageState();
 }
 
-class _AccountDetailsState extends State<AccountDetails> {
+class _AccountDetailsPageState extends State<AccountDetailsPage> {
   @override
   Widget build(BuildContext context) {
     final mainColor = Theme.of(context).primaryColor;

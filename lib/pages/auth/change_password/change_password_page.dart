@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fxbo/widgets/appButton.dart';
-import 'package:fxbo/widgets/appLogo.dart';
-import 'package:fxbo/widgets/appTextField.dart';
+import 'package:fxbo/widgets/app_button.dart';
+import 'package:fxbo/widgets/app_logo.dart';
+import 'package:fxbo/widgets/app_text_field.dart';
 
 class ChangePasswordPage extends StatefulWidget {
   @override

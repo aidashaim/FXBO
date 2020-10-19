@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:fxbo/widgets/appBarWidget.dart';
-import 'package:fxbo/widgets/appDrawer.dart';
-import 'package:fxbo/widgets/appDropDownButton.dart';
-import 'package:fxbo/widgets/appTextField.dart';
-import 'package:fxbo/widgets/bottomAppBarWidget.dart';
+import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_drawer.dart';
+import 'package:fxbo/widgets/app_drop_down_button.dart';
+import 'package:fxbo/widgets/app_text_field.dart';
+import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
-class UploadNewDocuments extends StatefulWidget {
+class UploadNewDocumentsPage extends StatefulWidget {
   @override
-  _UploadNewDocumentsState createState() => _UploadNewDocumentsState();
+  _UploadNewDocumentsPageState createState() => _UploadNewDocumentsPageState();
 }
 
-class _UploadNewDocumentsState extends State<UploadNewDocuments> {
+class _UploadNewDocumentsPageState extends State<UploadNewDocumentsPage> {
   final mainColor = Color(0xFF5CBC47);
   List<String> iddList = ['ID/Password', 'ID'];
   List<String> typeeList = ['Type', 'Type 1'];

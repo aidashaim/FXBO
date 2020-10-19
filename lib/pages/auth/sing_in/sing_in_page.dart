@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fxbo/pages/forgot_password/forgotPasswordPage.dart';
-import 'package:fxbo/pages/sing_up/singUpPage.dart';
-import 'package:fxbo/widgets/appButton.dart';
-import 'package:fxbo/widgets/appCheckBox.dart';
-import 'package:fxbo/widgets/appLogo.dart';
-import 'package:fxbo/widgets/appTextField.dart';
+import 'package:fxbo/pages/account/account_page.dart';
+import 'package:fxbo/pages/account_details/account_details_page.dart';
+import 'package:fxbo/pages/auth/forgot_password/forgot_password_page.dart';
+import 'package:fxbo/pages/auth/sing_up/sing_up_page.dart';
+import 'package:fxbo/pages/messages/messages_page.dart';
+import 'package:fxbo/widgets/app_button.dart';
+import 'package:fxbo/widgets/app_check_box.dart';
+import 'package:fxbo/widgets/app_logo.dart';
+import 'package:fxbo/widgets/app_text_field.dart';
 
 class SingInPage extends StatefulWidget {
   @override
@@ -82,7 +85,13 @@ class _SingInPageState extends State<SingInPage> {
                     SizedBox(height: 80.0),
                     AppButton(
                       text: 'Login',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => MessagesPage(),
+                          ),
+                        );
+                      },
                     ),
                     SizedBox(height: 20.0),
                     Row(

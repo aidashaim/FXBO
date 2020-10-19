@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fxbo/widgets/appBarWidget.dart';
-import 'package:fxbo/widgets/appDrawer.dart';
-import 'package:fxbo/widgets/appTextField.dart';
-import 'package:fxbo/widgets/bottomAppBarWidget.dart';
+import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_drawer.dart';
+import 'package:fxbo/widgets/app_text_field.dart';
+import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
 class WithdrawFunds2Page extends StatefulWidget {
   @override
@@ -85,16 +85,17 @@ class _WithdrawFunds2PageState extends State<WithdrawFunds2Page> {
                   'Approximate amount to be credited to your wallet after deducting the Commission & Fees',
                   style: Theme.of(context).textTheme.headline2.merge(
                       TextStyle(fontSize: 13.0, color: Color(0xFF636363))),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-        bottomNavigationBar: BottomTwoButton(
-          text: 'back',
-          text2: 'continue',
-          onTapBack: () {},
-          onTapContinue: () {},
-        ));
+      ),
+      bottomNavigationBar: BottomTwoButton(
+        text: 'back',
+        text2: 'continue',
+        onTapBack: () {},
+        onTapContinue: () {},
+      ),
+    );
   }
 }

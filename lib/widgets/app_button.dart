@@ -23,7 +23,10 @@ class AppButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.headline3.merge(
-                TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
         ),
       ),

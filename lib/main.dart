@@ -1,20 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fxbo/dialog/dialog.dart';
-import 'package:fxbo/pages/account/Account.dart';
-import 'package:fxbo/pages/account_details/AccountDetails.dart';
-import 'package:fxbo/pages/create_account/CreateAccountPage.dart';
-import 'package:fxbo/pages/forgot_password/forgotPasswordPage.dart';
-import 'package:fxbo/pages/messages/MessagesPage.dart';
-import 'package:fxbo/pages/sing_in/singInPage.dart';
-import 'package:fxbo/pages/sing_up/singUpPage.dart';
-import 'package:fxbo/pages/upload_new_documents/UploadNewDocuments.dart';
-import 'package:fxbo/pages/upload_payment_details/UploadPaymentDetails.dart';
-import 'package:fxbo/pages/uploaded_payment_details/UploadedPaymentDetails.dart';
-import 'package:fxbo/pages/withdraw_funds/WithdrawFunds.dart';
-import 'package:fxbo/pages/withdraw_funds_2/WithdrawFunds2.dart';
-import 'package:fxbo/widgets/appListView.dart';
-import 'package:fxbo/widgets/bottomAppBarWidget.dart';
+import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
+import 'package:fxbo/pages/auth/sing_up/sing_up_page.dart';
+import 'package:fxbo/pages/messages/messages_page.dart';
 
 void main() => {runApp(MyApp())};
 
@@ -123,7 +111,7 @@ class MyAppState extends State<MyApp> {
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
         ),*/
       ),
-      home: MessagesPage(),
+      home: SingInPage(),
     );
   }
 }

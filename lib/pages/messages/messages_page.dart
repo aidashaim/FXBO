@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fxbo/widgets/appBarWidget.dart';
-import 'package:fxbo/widgets/appDrawer.dart';
-import 'package:fxbo/widgets/bottomAppBarWidget.dart';
+import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_drawer.dart';
+import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
 class MessagesPage extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fxbo/pages/messages/MessagesPage.dart';
-import 'package:fxbo/pages/withdraw_funds/WithdrawFunds.dart';
+import 'package:fxbo/pages/messages/messages_page.dart';
+import 'package:fxbo/pages/withdraw_funds/withdraw_funds_page.dart';
 
 //////// BottomAppBar c 3 кнопками
 class BottomAppBarWidget extends StatelessWidget {
@@ -22,9 +22,11 @@ class BottomAppBarWidget extends StatelessWidget {
                 IconButton(
                   icon: Image.asset('assets/depositIcon.png', width: 55.0),
                   onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => WithdrawFundsPage())),
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => WithdrawFundsPage(),
+                    ),
+                  ),
                 ),
                 Text(
                   'Deposit',
@@ -45,24 +47,29 @@ class BottomAppBarWidget extends StatelessWidget {
                   children: [
                     IconButton(
                       icon: Image.asset('assets/messageIcon.png', width: 35.0),
-                      onPressed: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MessagesPage())),
+                      onPressed: () =>
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MessagesPage(),),),
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 30.0),
                       child: Container(
-                          padding: EdgeInsets.all(6.0),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: mainColor,
-                          ),
-                          child: Text(
-                            messagesCount.toString(),
-                            style: Theme.of(context).textTheme.subtitle1.merge(
-                                TextStyle(fontSize: 13, color: Colors.white)),
-                          )),
+                        padding: EdgeInsets.all(6.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: mainColor,
+                        ),
+                        child: Text(
+                          messagesCount.toString(),
+                          style: Theme
+                              .of(context)
+                              .textTheme
+                              .subtitle1
+                              .merge(
+                            TextStyle(fontSize: 13, color: Colors.white),),
+                        ),),
                     ),
                   ],
                 ),
