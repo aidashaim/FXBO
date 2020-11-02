@@ -3,8 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
 import 'package:fxbo/pages/auth/sing_up/sing_up_page.dart';
 import 'package:fxbo/pages/messages/messages_page.dart';
+import 'package:global_configuration/global_configuration.dart';
 
-void main() => {runApp(MyApp())};
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GlobalConfiguration().loadFromAsset("config");
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
