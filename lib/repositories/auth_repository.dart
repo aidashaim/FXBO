@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:fxbo/models/LoginResponse.dart';
 
 class AuthRepository {
   final Dio dio;
 
   AuthRepository(this.dio);
 
-  Future<bool> login({
+  Future<LoginResponse> login({
     @required String email,
     @required String password,
   }) async {
@@ -14,8 +15,13 @@ class AuthRepository {
       'email': email,
       'password': password,
     };
-    Response response = await dio.post('/rest/user/check_credentials', data: body).catchError(() {});
-    //Response response = await dio.get('/rest/ping');
-    return false;
+    Response response = await dio.post('/rest/user/check_credentials', data: body).catchError((err) {
+      print(err);
+    });
+    if (response != null) {
+      return LoginResponse.fromJson(response.data);
+    } else {
+      return null;
+    }
   }
 }

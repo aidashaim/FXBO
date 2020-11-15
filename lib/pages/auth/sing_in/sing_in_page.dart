@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fxbo/pages/account/account_page.dart';
 import 'package:fxbo/pages/account_details/account_details_page.dart';
 import 'package:fxbo/pages/auth/forgot_password/forgot_password_page.dart';
 import 'package:fxbo/pages/auth/sing_up/sing_up_page.dart';
-import 'package:fxbo/pages/messages/messages_page.dart';
 import 'package:fxbo/repositories/auth_repository.dart';
+import 'package:fxbo/repositories/user_repository.dart';
 import 'package:fxbo/widgets/app_button.dart';
 import 'package:fxbo/widgets/app_check_box.dart';
 import 'package:fxbo/widgets/app_logo.dart';
@@ -87,19 +86,30 @@ class _SingInPageState extends State<SingInPage> {
                       text: 'Login',
                       onTap: () async {
                         final baseUrl = GlobalConfiguration().get('baseUrl');
+                        final token = GlobalConfiguration().get('token');
                         final headers = {
-                          'Authorization':
-                          'Bearer ZGNiNTYyNTE3ZDcwYzgzZDJiNzFiMmE1NmNmNmNhYjQ4YmNiODQ5NWRiZWE4ZDAzNGMzZWMyM2I4YjhmZDc0NA',
+                          'Authorization': 'Bearer $token',
                         };
                         final options = {
                           'version': '1.0.0',
                         };
-                        final dio = Dio(BaseOptions(
-                          baseUrl: baseUrl,
-                          headers: headers,
-                          queryParameters: options,
-                        ),);
-                        final loginResult = await AuthRepository(dio).login(email: 'test@example.com', password: '');
+                        final dio = Dio(
+                          BaseOptions(
+                            baseUrl: baseUrl,
+                            headers: headers,
+                            queryParameters: options,
+                          ),
+                        );
+                        final loginResult = await AuthRepository(dio)
+                            .login(email: 'testi@email.com', password: 'StrongPassword1')
+                            .catchError((error) {
+                          print(error);
+                        });
+                        if (loginResult != null) {
+                          UserRepository.id = loginResult.id;
+                          await UserRepository.saveUserId(loginResult.id);
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AccountDetailsPage()));
+                        }
                         print(loginResult);
                       },
                     ),

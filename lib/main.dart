@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fxbo/pages/account_details/account_details_page.dart';
 import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
 import 'package:fxbo/pages/auth/sing_up/sing_up_page.dart';
 import 'package:fxbo/pages/messages/messages_page.dart';
+import 'package:fxbo/pages/splash/splash_screen.dart';
+import 'package:fxbo/repositories/user_repository.dart';
 import 'package:global_configuration/global_configuration.dart';
 
 void main() async {
@@ -19,6 +22,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -93,13 +97,9 @@ class MyAppState extends State<MyApp> {
               letterSpacing: 0,
               color: Color(0xFF303030)),
           // Button Text
-          bodyText2:
-              TextStyle(fontSize: 15.0, color: Theme.of(context).hintColor),
+          bodyText2: TextStyle(fontSize: 15.0, color: Theme.of(context).hintColor),
           // Hint
-          bodyText1: TextStyle(
-              fontSize: 15.0,
-              fontWeight: FontWeight.w700,
-              color: Color(0xFF636363)),
+          bodyText1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700, color: Color(0xFF636363)),
           // TextField Title
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF636363)),
         ),
@@ -116,7 +116,7 @@ class MyAppState extends State<MyApp> {
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
         ),*/
       ),
-      home: SingInPage(),
+      home: SplashScreen(),
     );
   }
 }
