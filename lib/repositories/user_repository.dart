@@ -1,19 +1,25 @@
+import 'package:flutter/widgets.dart';
+import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class UserRepository {
+@Injectable()
+class UserRepository extends ChangeNotifier {
+
+  final SharedPreferences sharedPreferences;
+
+  UserRepository(
+    this.sharedPreferences,
+  );
 
   static const String _PREF_USER_ID = "userId";
 
-  static String id;
+  String id;
 
-  static Future<void> saveUserId(String id) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString(_PREF_USER_ID, id);
+  Future<void> saveId(String id) async {
+    await sharedPreferences.setString(_PREF_USER_ID, id);
   }
 
-  static Future<String> getUserId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(_PREF_USER_ID);
+  Future<String> getSavedId() async {
+    return sharedPreferences.getString(_PREF_USER_ID);
   }
-
 }

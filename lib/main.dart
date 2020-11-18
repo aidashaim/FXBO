@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fxbo/pages/account_details/account_details_page.dart';
-import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
-import 'package:fxbo/pages/auth/sing_up/sing_up_page.dart';
-import 'package:fxbo/pages/messages/messages_page.dart';
 import 'package:fxbo/pages/splash/splash_screen.dart';
-import 'package:fxbo/repositories/user_repository.dart';
-import 'package:global_configuration/global_configuration.dart';
+
+import 'di/app_di.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GlobalConfiguration().loadFromAsset("config");
+  await configureDependencies();
   runApp(MyApp());
 }
 

@@ -10,20 +10,23 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.3
-  global_configuration:
   dio:
   shared_preferences:
+  injectable:
+  get_it:
+  provider:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  injectable_generator:
+  build_runner:
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/
-    - assets/cfg/
 
   fonts:
     - family: Montserrat
