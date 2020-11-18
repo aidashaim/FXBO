@@ -24,8 +24,7 @@ class AuthRepository {
     });
     if (response != null) {
       return LoginResponse.fromJson(response.data);
-    } else {
-      return null;
     }
+    throw Exception('Invalid login/password');
   }
 }

@@ -13,7 +13,7 @@ class SplashViewModel extends ChangeNotifier {
 
   Future<void> init(SplashNavigator splashNavigator) async {
     final savedId = await userRepository.getSavedId();
-    if (savedId.isNotEmpty) {
+    if (savedId != null && savedId.isNotEmpty) {
       userRepository.id = savedId;
       splashNavigator.goToAccountDetailsPage();
     } else {

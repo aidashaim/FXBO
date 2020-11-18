@@ -6,6 +6,7 @@ class AppTextField extends StatelessWidget {
   final Widget leading;
   final TextInputType type;
   final bool isLast;
+  final TextEditingController controller;
 
   const AppTextField({
     @required this.text,
@@ -13,6 +14,7 @@ class AppTextField extends StatelessWidget {
     this.leading,
     this.type,
     this.isLast = false,
+    this.controller,
   });
 
   @override
@@ -41,7 +43,11 @@ class AppTextField extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: TextField(
             keyboardType: type,
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme
+                .of(context)
+                .textTheme
+                .headline2,
+            controller: controller,
             decoration: InputDecoration(
               alignLabelWithHint: true,
               enabledBorder: OutlineInputBorder(
