@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fxbo/pages/account_details/account_details_page.dart';
@@ -10,7 +9,7 @@ import 'package:fxbo/widgets/app_button.dart';
 import 'package:fxbo/widgets/app_check_box.dart';
 import 'package:fxbo/widgets/app_logo.dart';
 import 'package:fxbo/widgets/app_text_field.dart';
-import 'package:global_configuration/global_configuration.dart';
+import 'package:injectable/injectable.dart';
 
 class SingInPage extends StatefulWidget {
   @override
@@ -18,6 +17,12 @@ class SingInPage extends StatefulWidget {
 }
 
 class _SingInPageState extends State<SingInPage> {
+  @injectable
+  UserRepository userRepository;
+
+  @injectable
+  AuthRepository authRepository;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,9 +72,9 @@ class _SingInPageState extends State<SingInPage> {
                           child: Text(
                             'Forgot Password?',
                             style: Theme.of(context).textTheme.headline1.merge(TextStyle(
-                                  fontSize: 13,
-                                  color: Color(0xFF58BE3F),
-                                )),
+                              fontSize: 13,
+                              color: Color(0xFF58BE3F),
+                            )),
                           ),
                           onPressed: () {
                             Navigator.of(context).push(
@@ -85,30 +90,17 @@ class _SingInPageState extends State<SingInPage> {
                     AppButton(
                       text: 'Login',
                       onTap: () async {
-                        final baseUrl = GlobalConfiguration().get('baseUrl');
-                        final token = GlobalConfiguration().get('token');
-                        final headers = {
-                          'Authorization': 'Bearer $token',
-                        };
-                        final options = {
-                          'version': '1.0.0',
-                        };
-                        final dio = Dio(
-                          BaseOptions(
-                            baseUrl: baseUrl,
-                            headers: headers,
-                            queryParameters: options,
-                          ),
-                        );
-                        final loginResult = await AuthRepository(dio)
-                            .login(email: 'testi@email.com', password: 'StrongPassword1')
-                            .catchError((error) {
+                        final loginResult = await authRepository.login(
+                          email: 'testi@email.com',
+                          password: 'StrongPassword1',
+                        ).catchError((error) {
                           print(error);
                         });
                         if (loginResult != null) {
-                          UserRepository.id = loginResult.id;
-                          await UserRepository.saveUserId(loginResult.id);
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AccountDetailsPage()));
+                          userRepository.id = loginResult.id;
+                          await userRepository.saveId(loginResult.id);
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(builder: (context) => AccountDetailsPage()));
                         }
                         print(loginResult);
                       },

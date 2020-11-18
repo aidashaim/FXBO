@@ -1,13 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fxbo/repositories/auth_repository.dart';
 import 'package:fxbo/widgets/app_button.dart';
 import 'package:fxbo/widgets/app_check_box.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
 import 'package:fxbo/widgets/app_logo.dart';
 import 'package:fxbo/widgets/app_text_field.dart';
-import 'package:global_configuration/global_configuration.dart';
 
 class SingUpPage extends StatefulWidget {
   @override
