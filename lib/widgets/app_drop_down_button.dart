@@ -5,7 +5,7 @@ class AppDropDownButton extends StatefulWidget {
   final String initialValue;
   final List<String> itemsList;
   final String hintText;
-  //final Function onChanged;
+  final Function(String) onChanged;
   final String title;
 
   const AppDropDownButton({
@@ -13,7 +13,7 @@ class AppDropDownButton extends StatefulWidget {
     this.initialValue,
     this.itemsList,
     this.hintText,
-    //this.onChanged,
+    this.onChanged,
     this.title,
   });
 
@@ -72,6 +72,9 @@ class AppDropDownButtonState extends State<AppDropDownButton> {
               value: value,
               onChanged: (String value) {
                 this.value = value;
+                if (widget.onChanged != null) {
+                  widget.onChanged(value);
+                }
                 setState(() {
 
                 });

@@ -4,7 +4,7 @@ class Configuration {
   final String baseUrl = 'https://demo.fxbackoffice.com';
 
   /// Токен для rest api
-  final String token = "ZGNiNTYyNTE3ZDcwYzgzZDJiNzFiMmE1NmNmNmNhYjQ4YmNiODQ5NWRiZWE4ZDAzNGMzZWMyM2I4YjhmZDc0NA";
+  final String token = "NDQ3YjNjNGMzODdmZWM4ZjgwNWI5ZmVkYWNlMmUyYjIxNGM1M2VjMjIzNTdlZWU0MmZhZjhiZWZhY2YxNTBhYg";
 
   /// Версия rest api
   final String apiVersion = "1.0.0";
