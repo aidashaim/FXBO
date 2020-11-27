@@ -3,14 +3,14 @@ import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
-class UploadedPaymentDetailsPage extends StatefulWidget {
+class DocumentsPage extends StatefulWidget {
   @override
-  _UploadedPaymentDetailsPageState createState() =>
-      _UploadedPaymentDetailsPageState();
+  _DocumentsPageState createState() =>
+      _DocumentsPageState();
 }
 
-class _UploadedPaymentDetailsPageState
-    extends State<UploadedPaymentDetailsPage> {
+class _DocumentsPageState
+    extends State<DocumentsPage> {
   final mainColor = Color(0xFF5CBC47);
 
   @override
@@ -18,14 +18,14 @@ class _UploadedPaymentDetailsPageState
     return Scaffold(
       drawer: AppDrawer(),
       appBar: AppBarWidget(
-        title: 'Uploaded Payment Details',
+        title: 'Documents',
         appBar: AppBar(),
       ),
       body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Container(child: StatefulBuilder(builder: (context, setState) {
             return ListView.builder(
-                padding: EdgeInsets.fromLTRB(20.0, 10.0, 10.0, 20.0),
+                padding: EdgeInsets.fromLTRB(30.0, 10.0, 10.0, 20.0),
                 scrollDirection: Axis.vertical,
                 itemCount: 15,
                 itemBuilder: (context, index) {
@@ -39,9 +39,9 @@ class _UploadedPaymentDetailsPageState
                             Container(
                               padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
                               margin: EdgeInsets.only(right: 5.0),
-                              width: 70.0,
+                              width: 60.0,
                               child: Image.asset(
-                                'assets/paymentDetailsItem.png',
+                                'assets/pdfIcon.png',
                               ),
                             ),
                             Column(
@@ -57,7 +57,7 @@ class _UploadedPaymentDetailsPageState
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Skrill',
+                                        'ID/Passport',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headline1
@@ -78,7 +78,7 @@ class _UploadedPaymentDetailsPageState
                                     width:
                                         MediaQuery.of(context).size.width * 0.6,
                                     child: Text(
-                                      '123456789',
+                                      'uploaded on 21 March',
                                       style: Theme.of(context)
                                           .textTheme
                                           .headline2
@@ -102,7 +102,7 @@ class _UploadedPaymentDetailsPageState
                 });
           }))),
       bottomNavigationBar: BottomButton(
-        text: 'add payment details',
+        text: 'upload new document',
         onTap: () {},
       ),
     );

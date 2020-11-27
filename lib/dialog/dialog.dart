@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppDialog extends StatefulWidget {
-  final List<String> itemsList;
-
-  const AppDialog({
-    this.itemsList,
-  });
-
   @override
   AppDialogState createState() => new AppDialogState();
 }
@@ -36,7 +30,7 @@ class AppDialogState extends State<AppDialog> {
                       width: 3.0,
                       color: mainColor,
                     ),
-                    borderRadius: BorderRadius.circular(80.0),
+                    shape: BoxShape.circle,
                   ),
                   child: Image.asset(
                     'assets/plusIcon.png',
@@ -44,7 +38,10 @@ class AppDialogState extends State<AppDialog> {
                 ),
                 Text(
                   'Uploaded',
-                  style: Theme.of(context).textTheme.headline2.merge(TextStyle(fontSize: 28.0)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .merge(TextStyle(fontSize: 28.0)),
                 ),
               ]),
           actions: [
@@ -86,18 +83,24 @@ class AppDialogState extends State<AppDialog> {
                 padding: EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   border: Border.all(width: 3.0, color: mainColor),
-                  borderRadius: BorderRadius.circular(80.0),
+                  shape: BoxShape.circle,
                 ),
                 child: Text(
                   '18%',
-                  style: Theme.of(context).textTheme.headline2.merge(TextStyle(fontSize: 25.0)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .merge(TextStyle(fontSize: 25.0)),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.only(bottom: 20.0),
                 child: Text(
                   'Upload in \n progress',
-                  style: Theme.of(context).textTheme.headline2.merge(TextStyle(fontSize: 28.0)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .merge(TextStyle(fontSize: 28.0)),
                 ),
               ),
             ],

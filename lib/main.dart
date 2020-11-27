@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fxbo/pages/account/account_page.dart';
+import 'package:fxbo/pages/accounts_overview/accounts_overview_page.dart';
+import 'package:fxbo/pages/auth/create_account/create_account_page.dart';
+import 'package:fxbo/pages/documents/documents_page.dart';
+import 'package:fxbo/pages/downloads/downloads_page.dart';
+import 'package:fxbo/pages/messages/messages_page.dart';
 import 'package:fxbo/pages/splash/splash_screen.dart';
+import 'package:fxbo/pages/upload_payment_details/upload_payment_details_page.dart';
+import 'package:fxbo/pages/uploaded_payment_details/uploaded_payment_details_page.dart';
+import 'package:fxbo/pages/withdraw_funds/withdraw_funds_page.dart';
 
 import 'di/app_di.dart';
 
@@ -112,7 +121,7 @@ class MyAppState extends State<MyApp> {
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
         ),*/
       ),
-      home: SplashScreen(),
+      home: AccountsOverviewPage(),
     );
   }
 }

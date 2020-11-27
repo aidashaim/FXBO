@@ -15,6 +15,7 @@ dependencies:
   injectable:
   get_it:
   provider:
+  dotted_border: ^1.0.7
 
 dev_dependencies:
   flutter_test:

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/dialog/dialog.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
 import 'package:fxbo/widgets/app_text_field.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class UploadPaymentDetailsPage extends StatefulWidget {
   @override
-  _UploadPaymentDetailsPageState createState() => _UploadPaymentDetailsPageState();
+  _UploadPaymentDetailsPageState createState() =>
+      _UploadPaymentDetailsPageState();
 }
 
 class _UploadPaymentDetailsPageState extends State<UploadPaymentDetailsPage> {
@@ -41,37 +44,37 @@ class _UploadPaymentDetailsPageState extends State<UploadPaymentDetailsPage> {
                 AppTextField(
                   text: 'Skrill Account Email',
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 10.0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2.0,
-                          style: BorderStyle.solid,
-                          color: mainColor)),
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 15.0),
-                    child: Column(
-                      children: <Widget>[
-                        ButtonTheme(
-                          minWidth: double.maxFinite,
-                          child: IconButton(
-                            iconSize: 60.0,
-                            icon: Image.asset(
-                              'assets/uploadIcon.png',
+                DottedBorder(
+                  dashPattern: [8, 4],
+                  strokeWidth: 2.0,
+                  color: mainColor,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 15.0),
+                      child: Column(
+                        children: <Widget>[
+                          ButtonTheme(
+                            minWidth: double.maxFinite,
+                            child: IconButton(
+                              iconSize: 60.0,
+                              icon: Image.asset(
+                                'assets/uploadIcon.png',
+                              ),
+                              onPressed: () {},
                             ),
-                            onPressed: () {},
                           ),
-                        ),
-                        Text(
-                          'Payment Method \n Screenshot',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline2
-                              .merge(TextStyle(fontSize: 20.0)),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
+                          Text(
+                            'Payment Method \n Screenshot',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline2
+                                .merge(TextStyle(fontSize: 20.0)),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
