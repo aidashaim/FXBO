@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fxbo/dialog/dialog.dart';
+import 'package:fxbo/pages/uploaded_payment_details/uploaded_payment_details_page.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
@@ -84,7 +84,14 @@ class _UploadPaymentDetailsPageState extends State<UploadPaymentDetailsPage> {
         ),
         bottomNavigationBar: BottomButton(
           text: 'Upload',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => UploadedPaymentDetailsPage(),
+              ),
+            );
+          },
         ));
   }
 }

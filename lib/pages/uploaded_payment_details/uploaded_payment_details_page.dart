@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/upload_payment_details/upload_payment_details_page.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
@@ -37,7 +38,8 @@ class _UploadedPaymentDetailsPageState
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              padding: EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
+                              padding:
+                                  EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
                               margin: EdgeInsets.only(right: 5.0),
                               width: 70.0,
                               child: Image.asset(
@@ -52,7 +54,6 @@ class _UploadedPaymentDetailsPageState
                                   width:
                                       MediaQuery.of(context).size.width * 0.67,
                                   child: Row(
-                                    //mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
@@ -103,7 +104,14 @@ class _UploadedPaymentDetailsPageState
           }))),
       bottomNavigationBar: BottomButton(
         text: 'add payment details',
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => UploadPaymentDetailsPage(),
+            ),
+          );
+        },
       ),
     );
   }

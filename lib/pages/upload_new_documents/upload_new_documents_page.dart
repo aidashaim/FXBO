@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/documents/documents_page.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
 import 'package:fxbo/widgets/app_text_field.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class UploadNewDocumentsPage extends StatefulWidget {
   @override
@@ -52,41 +54,41 @@ class _UploadNewDocumentsPageState extends State<UploadNewDocumentsPage> {
                     initialValue: 'Country of Issue',
                     itemsList: countrList,
                     hintText: ''),
-                Container(
-                  padding: EdgeInsets.only(top: 10.0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2.0,
-                          style: BorderStyle.solid,
-                          color: mainColor)),
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 15.0),
-                    child: Column(
-                      children: <Widget>[
-                        ButtonTheme(
-                          minWidth: double.maxFinite,
-                          child: IconButton(
-                            iconSize: 60.0,
-                            icon: Image.asset(
-                              'assets/uploadIcon.png',
+                DottedBorder(
+                  dashPattern: [8, 4],
+                  strokeWidth: 2.0,
+                  color: mainColor,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 15.0),
+                      child: Column(
+                        children: <Widget>[
+                          ButtonTheme(
+                            minWidth: double.maxFinite,
+                            child: IconButton(
+                              iconSize: 60.0,
+                              icon: Image.asset(
+                                'assets/uploadIcon.png',
+                              ),
+                              onPressed: () {},
                             ),
-                            onPressed: () {},
                           ),
-                        ),
-                        Text(
-                          'Front Side',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline2
-                              .merge(TextStyle(fontSize: 20.0)),
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Tap to upload or take a photo',
-                            style: Theme.of(context).textTheme.headline5)
-                      ],
+                          Text(
+                            'Front Side',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline2
+                                .merge(TextStyle(fontSize: 20.0)),
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          Text('Tap to upload or take a photo',
+                              style: Theme.of(context).textTheme.headline5)
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -101,41 +103,41 @@ class _UploadNewDocumentsPageState extends State<UploadNewDocumentsPage> {
                 SizedBox(
                   height: 15.0,
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 10.0),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          width: 2.0,
-                          style: BorderStyle.solid,
-                          color: mainColor)),
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 15.0),
-                    child: Column(
-                      children: <Widget>[
-                        ButtonTheme(
-                          minWidth: double.maxFinite,
-                          child: IconButton(
-                            iconSize: 60.0,
-                            icon: Image.asset(
-                              'assets/uploadIcon.png',
+                DottedBorder(
+                  dashPattern: [8, 4],
+                  strokeWidth: 2.0,
+                  color: mainColor,
+                  child: Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 15.0),
+                      child: Column(
+                        children: <Widget>[
+                          ButtonTheme(
+                            minWidth: double.maxFinite,
+                            child: IconButton(
+                              iconSize: 60.0,
+                              icon: Image.asset(
+                                'assets/uploadIcon.png',
+                              ),
+                              onPressed: () {},
                             ),
-                            onPressed: () {},
                           ),
-                        ),
-                        Text(
-                          'Back Side',
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline2
-                              .merge(TextStyle(fontSize: 20.0)),
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text('Tap to upload or take a photo',
-                            style: Theme.of(context).textTheme.headline5)
-                      ],
+                          Text(
+                            'Back Side',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline2
+                                .merge(TextStyle(fontSize: 20.0)),
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          Text('Tap to upload or take a photo',
+                              style: Theme.of(context).textTheme.headline5)
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -153,7 +155,14 @@ class _UploadNewDocumentsPageState extends State<UploadNewDocumentsPage> {
         ),
         bottomNavigationBar: BottomButton(
           text: 'Upload',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DocumentsPage(),
+              ),
+            );
+          },
         ));
   }
 }

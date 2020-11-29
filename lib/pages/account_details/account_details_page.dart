@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/accounts_overview/accounts_overview_page.dart';
+import 'package:fxbo/pages/downloads/downloads_page.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
@@ -207,7 +209,14 @@ class _AccountDetailsPageState extends State<AccountDetailsPage> {
               child: FlatButton(
                 padding: EdgeInsets.fromLTRB(0.0, 21.0, 0.0, 15.0),
                 color: Color(0xFF636363),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DownloadsPage(),
+                    ),
+                  );
+                },
                 child: Text(
                   'download platform'.toUpperCase(),
                   style: Theme.of(context).textTheme.headline6,
@@ -221,7 +230,14 @@ class _AccountDetailsPageState extends State<AccountDetailsPage> {
         ),
         BottomButton(
           text: 'Accounts overview',
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AccountsOverviewPage(),
+              ),
+            );
+          },
         ),
       ]),
     );

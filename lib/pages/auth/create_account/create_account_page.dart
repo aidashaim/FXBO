@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/dialog/dialog.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
@@ -54,7 +55,9 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
       ),
       bottomSheet: BottomButton(
         text: 'Continue',
-        onTap: () {},
+        onTap: () {
+          AppDialogState().showCreateAccountDialog(context);
+        },
       ),
     );
   }

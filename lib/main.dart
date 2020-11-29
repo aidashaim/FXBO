@@ -7,6 +7,7 @@ import 'package:fxbo/pages/documents/documents_page.dart';
 import 'package:fxbo/pages/downloads/downloads_page.dart';
 import 'package:fxbo/pages/messages/messages_page.dart';
 import 'package:fxbo/pages/splash/splash_screen.dart';
+import 'package:fxbo/pages/upload_new_documents/upload_new_documents_page.dart';
 import 'package:fxbo/pages/upload_payment_details/upload_payment_details_page.dart';
 import 'package:fxbo/pages/uploaded_payment_details/uploaded_payment_details_page.dart';
 import 'package:fxbo/pages/withdraw_funds/withdraw_funds_page.dart';
@@ -121,7 +122,7 @@ class MyAppState extends State<MyApp> {
           caption: TextStyle(fontSize: 12.0, color: Color(0xFF5CBC47)),
         ),*/
       ),
-      home: AccountsOverviewPage(),
+      home: UploadPaymentDetailsPage(),
     );
   }
 }

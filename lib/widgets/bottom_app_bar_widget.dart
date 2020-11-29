@@ -109,9 +109,13 @@ class FloatingButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/plusButton.png',
-      scale: 1.6,
+    return IconButton(
+      iconSize: 70.0,
+      icon: Image.asset(
+        'assets/plusButton.png',
+
+      ),
+      onPressed: onTapPlus,
     );
   }
 }

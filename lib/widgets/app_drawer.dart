@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/pages/accounts_overview/accounts_overview_page.dart';
 import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
+import 'package:fxbo/pages/documents/documents_page.dart';
+import 'package:fxbo/pages/downloads/downloads_page.dart';
 import 'package:fxbo/pages/messages/messages_page.dart';
 import 'package:fxbo/pages/upload_new_documents/upload_new_documents_page.dart';
 import 'package:fxbo/pages/uploaded_payment_details/uploaded_payment_details_page.dart';
@@ -27,7 +30,8 @@ class AppDrawer extends StatelessWidget {
             child: UserAccountsDrawerHeader(
               decoration: BoxDecoration(
                 color: mainColor,
-                borderRadius: BorderRadius.only(bottomRight: Radius.circular(30.0)),
+                borderRadius:
+                    BorderRadius.only(bottomRight: Radius.circular(30.0)),
                 gradient: new LinearGradient(
                   colors: [
                     const Color(0xFF5CBC47),
@@ -39,7 +43,7 @@ class AppDrawer extends StatelessWidget {
                   tileMode: TileMode.clamp,
                 ),
               ),
-              accountName: Padding(
+              accountEmail: Padding(
                 padding: EdgeInsets.only(bottom: 20.0),
                 child: Text(
                   'Andrei S',
@@ -51,6 +55,17 @@ class AppDrawer extends StatelessWidget {
                       ),
                 ),
               ),
+              accountName: Padding(
+                padding: EdgeInsets.only(bottom: 20.0),
+                child: Text(
+                  '100000,',
+                  style: Theme.of(context).textTheme.headline6.merge(
+                        TextStyle(
+                          fontSize: 20.0,
+                        ),
+                      ),
+                ),
+              ),
             ),
           ),
           Padding(
@@ -58,52 +73,53 @@ class AppDrawer extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 ListTile(
-                  title: Text(
-                    'Accounts Overview',
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .headline1
-                        .merge(TextStyle(fontSize: 20.0),),
-                  ),
-                ),
-                ListTile(
-                  title: Stack(children: [
-                    Text(
-                      'Messages',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline1
-                          .merge(TextStyle(fontSize: 20.0),),
+                    title: Text(
+                      'Accounts Overview',
+                      style: Theme.of(context).textTheme.headline1.merge(
+                            TextStyle(fontSize: 20.0),
+                          ),
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                        height: 25.0,
-                        padding: EdgeInsets.fromLTRB(18.0, 14.0, 18.0, 0.0),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: mainColor,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AccountsOverviewPage(),
                         ),
-                        child: Text(
-                          messagesCount.toString(),
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .subtitle1
-                              .merge(
-                            TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              height: 0.3,
+                      );
+                    }),
+                ListTile(
+                    title: Stack(
+                      children: [
+                        Text(
+                          'Messages',
+                          style: Theme.of(context).textTheme.headline1.merge(
+                                TextStyle(fontSize: 20.0),
+                              ),
+                        ),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Container(
+                            height: 25.0,
+                            padding: EdgeInsets.fromLTRB(18.0, 14.0, 18.0, 0.0),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: mainColor,
+                            ),
+                            child: Text(
+                              messagesCount.toString(),
+                              style:
+                                  Theme.of(context).textTheme.subtitle1.merge(
+                                        TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          height: 0.3,
+                                        ),
+                                      ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
-                  ),
                     onTap: () {
                       Navigator.push(
                         context,
@@ -112,22 +128,20 @@ class AppDrawer extends StatelessWidget {
                         ),
                       );
                     }
-                  //trailing: Icon(Icons.arrow_upward),
-                ),
+                    //trailing: Icon(Icons.arrow_upward),
+                    ),
                 ListTile(
                   title: Text(
                     'Documents',
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .headline1
-                        .merge(TextStyle(fontSize: 20.0),),
+                    style: Theme.of(context).textTheme.headline1.merge(
+                          TextStyle(fontSize: 20.0),
+                        ),
                   ),
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => UploadNewDocumentsPage(),
+                        builder: (context) => DocumentsPage(),
                       ),
                     );
                   },
@@ -135,58 +149,61 @@ class AppDrawer extends StatelessWidget {
                 ListTile(
                   title: Text(
                     'Deposit Funds',
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .headline1
-                        .merge(TextStyle(fontSize: 20.0),),
+                    style: Theme.of(context).textTheme.headline1.merge(
+                          TextStyle(fontSize: 20.0),
+                        ),
                   ),
                 ),
                 ListTile(
                     title: Text(
                       'Withdraw Funds',
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .headline1
-                          .merge(TextStyle(fontSize: 20.0),),
+                      style: Theme.of(context).textTheme.headline1.merge(
+                            TextStyle(fontSize: 20.0),
+                          ),
                     ),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => WithdrawFundsPage(),),);
-                    }
-                ),
+                          builder: (context) => WithdrawFundsPage(),
+                        ),
+                      );
+                    }),
                 ListTile(
                   title: Text(
                     'Payment Details',
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .headline1
-                        .merge(TextStyle(fontSize: 20.0)),
-                  ),
-                  onTap: () =>
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => UploadedPaymentDetailsPage(),),),
-                ),
-                ListTile(
-                  title: Text(
-                    'Downloads',
                     style: Theme.of(context)
                         .textTheme
                         .headline1
                         .merge(TextStyle(fontSize: 20.0)),
                   ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => UploadedPaymentDetailsPage(),
+                    ),
+                  ),
                 ),
+                ListTile(
+                    title: Text(
+                      'Downloads',
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline1
+                          .merge(TextStyle(fontSize: 20.0)),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DownloadsPage(),
+                        ),
+                      );
+                    }),
                 ListTile(
                   title: Text(
                     'Log Out',
-                    style: Theme
-                        .of(context)
+                    style: Theme.of(context)
                         .textTheme
                         .headline1
                         .merge(TextStyle(fontSize: 20.0)),

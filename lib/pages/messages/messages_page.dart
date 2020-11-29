@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/dialog/dialog.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
-import 'package:fxbo/widgets/app_text_field.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
 class MessagesPage extends StatefulWidget {
@@ -24,8 +24,7 @@ class _MessagesPageState extends State<MessagesPage> {
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
-        child: Container(
-            child: StatefulBuilder(builder: (context, setState) {
+        child: Container(child: StatefulBuilder(builder: (context, setState) {
           return ListView.builder(
               padding: EdgeInsets.fromLTRB(30.0, 10.0, 10.0, 20.0),
               scrollDirection: Axis.vertical,
@@ -59,7 +58,6 @@ class _MessagesPageState extends State<MessagesPage> {
                                 padding: EdgeInsets.symmetric(vertical: 5.0),
                                 width: MediaQuery.of(context).size.width * 0.67,
                                 child: Row(
-                                  //mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
@@ -106,9 +104,8 @@ class _MessagesPageState extends State<MessagesPage> {
               });
         })),
       ),
-      // ),
       bottomNavigationBar: BottomAppBarWidget(),
-      floatingActionButton: Container (
+      floatingActionButton: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           boxShadow: <BoxShadow>[
@@ -119,7 +116,9 @@ class _MessagesPageState extends State<MessagesPage> {
           ],
         ),
         child: FloatingButtonWidget(
-          onTapPlus: () {},
+          onTapPlus: () {
+            AppDialogState().showAccountDialog(context);
+          },
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
