@@ -28,17 +28,18 @@ flutter:
 
   assets:
     - assets/
+    - fonts/
 
   fonts:
     - family: Montserrat
       fonts:
-      - asset: assets/montserrat.ttf
+        - asset: fonts/montserrat.ttf
     - family: Poppins
       fonts:
-      - asset: assets/poppins.ttf
+        - asset: fonts/poppins.ttf
     - family: Nunito
       fonts:
-      - asset: assets/nunito.ttf
-    - family: Nunito-Bold
+        - asset: fonts/nunito.ttf
+    - family: NunitoBold
       fonts:
-      - asset: assets/nunito-bold.ttf
+        - asset: fonts/nunito_bold.ttf
