@@ -1,3 +1,3 @@
 abstract class SignUpNavigator {
-  void goToAccountDetailsPage();
+  void goToSignInPage();
 }

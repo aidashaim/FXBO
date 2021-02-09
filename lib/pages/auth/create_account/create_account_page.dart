@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fxbo/dialog/dialog.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_button_alternative.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
@@ -35,28 +36,32 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
             children: <Widget>[
               SizedBox(height: 20.0),
               AppDropDownButton(
-                  title: 'Type',
-                  initialValue: 'Standard',
-                  itemsList: typeList,
-                  hintText: ''),
+                title: 'Type',
+                initialValue: 'Standard',
+                values: typeList,
+                hintText: '',
+              ),
               AppDropDownButton(
-                  title: 'Leverage',
-                  initialValue: '1:10',
-                  itemsList: leverageList,
-                  hintText: ''),
+                title: 'Leverage',
+                initialValue: '1:10',
+                values: leverageList,
+                hintText: '',
+              ),
               AppDropDownButton(
-                  title: 'Currency',
-                  initialValue: 'USD',
-                  itemsList: currencyList,
-                  hintText: ''),
+                title: 'Currency',
+                initialValue: 'USD',
+                values: currencyList,
+                hintText: '',
+              ),
             ],
           ),
         ),
       ),
-      bottomSheet: BottomButton(
+      bottomSheet: AppButtonBottom(
         text: 'Continue',
+        color: Color(0xFF5CBC47),
         onTap: () {
-          AppDialogState().showCreateAccountDialog(context);
+          CustomAppDialogState().showCreateAccountDialog(context);
         },
       ),
     );

@@ -106,7 +106,7 @@ class _WithdrawFunds2PageState extends State<WithdrawFunds2Page> {
           );
         },
         onTapContinue: () {
-          AppDialogState().showWithdrawDialog(context);
+          CustomAppDialogState().showWithdrawDialog(context);
         },
       ),
     );

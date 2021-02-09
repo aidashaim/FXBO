@@ -29,7 +29,7 @@ class BottomAppBarWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     IconButton(
-                      icon: Image.asset('assets/depositIcon.png', width: 55.0),
+                      icon: Image.asset('assets/ic_card.png', width: 55.0),
                       onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -55,7 +55,7 @@ class BottomAppBarWidget extends StatelessWidget {
                     Stack(
                       children: [
                         IconButton(
-                          icon: Image.asset('assets/messageIcon.png',
+                          icon: Image.asset('assets/ic_message.png',
                               width: 35.0),
                           onPressed: () => Navigator.push(
                             context,
@@ -112,43 +112,9 @@ class FloatingButtonWidget extends StatelessWidget {
     return IconButton(
       iconSize: 70.0,
       icon: Image.asset(
-        'assets/plusButton.png',
-
+        'assets/ic_add.png',
       ),
       onPressed: onTapPlus,
-    );
-  }
-}
-
-//////// BottomAppBar c 1 кнопкой
-class BottomButton extends StatelessWidget {
-  final Function onTap;
-  final String text;
-  final bool isGrey;
-
-  const BottomButton({@required this.onTap, this.text, this.isGrey = false});
-
-  @override
-  Widget build(BuildContext context) {
-    final mainColor = Color(0xFF5CBC47);
-
-    return BottomAppBar(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              padding: EdgeInsets.fromLTRB(0.0, 21.0, 0.0, 15.0),
-              color: isGrey ? Color(0xFF9E9E9E) : mainColor,
-              onPressed: onTap,
-              child: Text(
-                text.toUpperCase(),
-                style: Theme.of(context).textTheme.headline6,
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
@@ -169,8 +135,6 @@ class BottomTwoButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mainColor = Color(0xFF5CBC47);
-
     return BottomAppBar(
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -189,7 +153,7 @@ class BottomTwoButton extends StatelessWidget {
           Expanded(
             child: FlatButton(
               padding: EdgeInsets.fromLTRB(0.0, 21.0, 0.0, 15.0),
-              color: mainColor,
+              color: Color(0xFF5CBC47),
               onPressed: onTapContinue,
               child: Text(
                 text2.toUpperCase(),

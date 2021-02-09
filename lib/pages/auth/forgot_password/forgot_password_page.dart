@@ -29,18 +29,24 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(
-                    height: 40.0,
+                    height: 20,
                   ),
                   AppTextField(
                     title: 'Forgot Password',
                     text: 'Enter your email address',
                     leading: Image.asset(
-                      'assets/emailIcon.png',
+                      'assets/ic_mail.png',
                       scale: 1.6,
                     ),
                     type: TextInputType.emailAddress,
                   ),
-                  AppButton(text: 'Continue', onTap: () {}),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  AppButton(
+                    text: 'Continue',
+                    onTap: () {},
+                  ),
                 ],
               ),
             ),

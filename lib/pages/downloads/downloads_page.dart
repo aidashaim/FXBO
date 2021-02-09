@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_button_alternative.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
@@ -42,10 +43,7 @@ class _DownloadsPageState extends State<DownloadsPage> {
                           ),
                           Text(
                             'Metatrader 4'.toUpperCase(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline1
-                                .merge(TextStyle(
+                            style: Theme.of(context).textTheme.headline1.merge(TextStyle(
                                   fontSize: 20.0,
                                 )),
                           ),
@@ -54,11 +52,15 @@ class _DownloadsPageState extends State<DownloadsPage> {
                       Divider(),
                     ],
                   );
-                });
-          }))),
-      bottomNavigationBar: BottomButton(
+                },
+              );
+            },
+          ),
+        ),
+      ),
+      bottomNavigationBar: AppButtonBottom(
+        color: Color(0xFF5CBC47),
         text: 'tap item to download',
-        isGrey: true,
         onTap: () {},
       ),
     );

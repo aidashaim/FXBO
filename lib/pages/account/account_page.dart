@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_button_alternative.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
@@ -206,8 +207,9 @@ class _AccountPageState extends State<AccountPage> {
               ),
             ),
           )),
-      bottomNavigationBar: BottomButton(
+      bottomNavigationBar: AppButtonBottom(
         text: 'deposit',
+        color: Color(0xFF5CBC47),
         onTap: () {},
       ),
     );

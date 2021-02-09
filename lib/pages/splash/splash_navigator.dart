@@ -3,5 +3,5 @@ abstract class SplashNavigator {
   void goToSingInPage();
 
   /// Открыть экран с информацией о аккаунте
-  void goToAccountDetailsPage();
+  void goToAccountsOverviewPage();
 }

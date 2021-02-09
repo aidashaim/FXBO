@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:fxbo/models/country.dart';
+import 'package:fxbo/models/dto/country.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()

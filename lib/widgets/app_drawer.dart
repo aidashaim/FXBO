@@ -4,7 +4,6 @@ import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
 import 'package:fxbo/pages/documents/documents_page.dart';
 import 'package:fxbo/pages/downloads/downloads_page.dart';
 import 'package:fxbo/pages/messages/messages_page.dart';
-import 'package:fxbo/pages/upload_new_documents/upload_new_documents_page.dart';
 import 'package:fxbo/pages/uploaded_payment_details/uploaded_payment_details_page.dart';
 import 'package:fxbo/pages/withdraw_funds/withdraw_funds_page.dart';
 
@@ -30,8 +29,9 @@ class AppDrawer extends StatelessWidget {
             child: UserAccountsDrawerHeader(
               decoration: BoxDecoration(
                 color: mainColor,
-                borderRadius:
-                    BorderRadius.only(bottomRight: Radius.circular(30.0)),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(30.0),
+                ),
                 gradient: new LinearGradient(
                   colors: [
                     const Color(0xFF5CBC47),
@@ -72,21 +72,18 @@ class AppDrawer extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(0.0, 140.0, 0.0, 60.0),
             child: ListView(
               children: <Widget>[
-                ListTile(
-                    title: Text(
-                      'Accounts Overview',
-                      style: Theme.of(context).textTheme.headline1.merge(
-                            TextStyle(fontSize: 20.0),
-                          ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AccountsOverviewPage(),
-                        ),
-                      );
-                    }),
+                _buildButton(
+                  context: context,
+                  title: 'Accounts Overview',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AccountsOverviewPage(),
+                      ),
+                    );
+                  },
+                ),
                 ListTile(
                     title: Stack(
                       children: [
@@ -121,6 +118,7 @@ class AppDrawer extends StatelessWidget {
                       ],
                     ),
                     onTap: () {
+                      Navigator.of(context).pop();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -128,15 +126,11 @@ class AppDrawer extends StatelessWidget {
                         ),
                       );
                     }
-                    //trailing: Icon(Icons.arrow_upward),
-                    ),
-                ListTile(
-                  title: Text(
-                    'Documents',
-                    style: Theme.of(context).textTheme.headline1.merge(
-                          TextStyle(fontSize: 20.0),
-                        ),
-                  ),
+                  //trailing: Icon(Icons.arrow_upward),
+                ),
+                _buildButton(
+                  context: context,
+                  title: 'Documents',
                   onTap: () {
                     Navigator.push(
                       context,
@@ -146,74 +140,56 @@ class AppDrawer extends StatelessWidget {
                     );
                   },
                 ),
-                ListTile(
-                  title: Text(
-                    'Deposit Funds',
-                    style: Theme.of(context).textTheme.headline1.merge(
-                          TextStyle(fontSize: 20.0),
-                        ),
-                  ),
+                _buildButton(
+                  context: context,
+                  title: 'Deposit Funds',
+                  onTap: () {},
                 ),
-                ListTile(
-                    title: Text(
-                      'Withdraw Funds',
-                      style: Theme.of(context).textTheme.headline1.merge(
-                            TextStyle(fontSize: 20.0),
-                          ),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => WithdrawFundsPage(),
-                        ),
-                      );
-                    }),
-                ListTile(
-                  title: Text(
-                    'Payment Details',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline1
-                        .merge(TextStyle(fontSize: 20.0)),
-                  ),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => UploadedPaymentDetailsPage(),
-                    ),
-                  ),
-                ),
-                ListTile(
-                    title: Text(
-                      'Downloads',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1
-                          .merge(TextStyle(fontSize: 20.0)),
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DownloadsPage(),
-                        ),
-                      );
-                    }),
-                ListTile(
-                  title: Text(
-                    'Log Out',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline1
-                        .merge(TextStyle(fontSize: 20.0)),
-                  ),
+                _buildButton(
+                  context: context,
+                  title: 'Withdraw Funds',
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
+                        builder: (context) => WithdrawFundsPage(),
+                      ),
+                    );
+                  },
+                ),
+                _buildButton(
+                  context: context,
+                  title: 'Payment Details',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UploadedPaymentDetailsPage(),
+                      ),
+                    );
+                  },
+                ),
+                _buildButton(
+                  context: context,
+                  title: 'Downloads',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DownloadsPage(),
+                      ),
+                    );
+                  },
+                ),
+                _buildButton(
+                  context: context,
+                  title: 'Log Out',
+                  onTap: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
                         builder: (context) => SingInPage(),
                       ),
+                          (route) => false,
                     );
                   },
                 ),
@@ -233,7 +209,7 @@ class AppDrawer extends StatelessWidget {
               width: 180.0,
               height: 120.0,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.elliptical(150, 100)),
+                borderRadius: BorderRadius.all(Radius.elliptical(150, 100),),
                 color: Colors.white.withOpacity(0.15),
               ),
             ),
@@ -264,6 +240,25 @@ class AppDrawer extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildButton({@required BuildContext context, @required String title, @required Function onTap,}) {
+    return ListTile(
+      title: Text(
+        title,
+        style: Theme
+            .of(context)
+            .textTheme
+            .headline1
+            .merge(
+          TextStyle(fontSize: 20),
+        ),
+      ),
+      onTap: () {
+        Navigator.of(context).pop();
+        onTap.call();
+      },
     );
   }
 }

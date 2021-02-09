@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fxbo/models/login_response.dart';
-import 'package:fxbo/models/registration_repsone.dart';
+import 'package:fxbo/models/dto/login_response.dart';
+import 'package:fxbo/models/dto/registration_repsone.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()

@@ -4,6 +4,6 @@ abstract class SignInNavigator {
   void goToSingUpPage();
 
   /// Открыть экран с информацией о счете
-  void goToAccountDetailsPage();
+  void goToAccountsOverviewPage();
 
 }

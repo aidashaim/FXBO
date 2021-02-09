@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fxbo/pages/withdraw_funds_2/withdraw_funds_2_page.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_button_alternative.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/app_drop_down_button.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
@@ -38,32 +39,30 @@ class _WithdrawFundsPageState extends State<WithdrawFundsPage> {
               AppDropDownButton(
                   title: 'Withdraw From',
                   initialValue: 'Standard 1',
-                  itemsList: fromList,
+                  values: fromList,
                   hintText: ''),
               AppDropDownButton(
                   title: 'Withdraw To',
                   initialValue: 'ThunderXPay',
-                  itemsList: toList,
-                  hintText: ''),
+                  values: toList, hintText: ''),
               AppDropDownButton(
-                  title: 'Payment Details',
-                  initialValue: '123456789',
-                  itemsList: detailsList,
-                  hintText: ''),
+                  title: 'Payment Details', initialValue: '123456789', values: detailsList, hintText: ''),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomButton(
-          text: 'Continue',
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => WithdrawFunds2Page(),
-              ),
-            );
-          }),
+      bottomNavigationBar: AppButtonBottom(
+        color: Color(0xFF5CBC47),
+        text: 'Continue',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WithdrawFunds2Page(),
+            ),
+          );
+        },
+      ),
     );
   }
 }

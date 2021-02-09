@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fxbo/di/app_di.dart';
 import 'package:fxbo/dialog/dialog.dart';
+import 'package:fxbo/models/bl/message.dart';
+import 'package:fxbo/pages/messages/message_item.dart';
+import 'package:fxbo/pages/messages/messages_viewmodel.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
+import 'package:provider/provider.dart';
 
 class MessagesPage extends StatefulWidget {
   @override
@@ -22,87 +27,23 @@ class _MessagesPageState extends State<MessagesPage> {
         title: 'messages',
         appBar: AppBar(),
       ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Container(child: StatefulBuilder(builder: (context, setState) {
-          return ListView.builder(
-              padding: EdgeInsets.fromLTRB(30.0, 10.0, 10.0, 20.0),
-              scrollDirection: Axis.vertical,
-              itemCount: 15,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(15.0),
-                            margin: EdgeInsets.only(right: 5.0),
-                            width: 70.0,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            child: Image.asset(
-                              'assets/logo_2.png',
-                              width: 70.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.symmetric(vertical: 5.0),
-                                width: MediaQuery.of(context).size.width * 0.67,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'FXBO',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1
-                                          .merge(TextStyle(
-                                            fontSize: 22.0,
-                                          )),
-                                    ),
-                                    Text(
-                                      '1 hour ago',
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(right: 30.0),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.6,
-                                  child: Text(
-                                    'Best Book of fgbvhjfdbh bfgr gyug bhg vg cgf ijhiu drxr bhbh ',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headline2
-                                        .merge(TextStyle(fontSize: 17.0)),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Divider(),
-                    ],
-                  ),
-                );
-              });
-        })),
+      body: ChangeNotifierProvider<MessagesViewModel>(
+        create: (context) => getIt.get<MessagesViewModel>()..getMessages(),
+        child: Consumer<MessagesViewModel>(
+          builder: (context, model, child) {
+            if (model.isLoaderVisible) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (model.hasError) {
+              return Center(
+                child: Text('error'),
+              );
+            } else {
+              return _buildContent(model.messages);
+            }
+          },
+        ),
       ),
       bottomNavigationBar: BottomAppBarWidget(),
       floatingActionButton: Container(
@@ -117,11 +58,52 @@ class _MessagesPageState extends State<MessagesPage> {
         ),
         child: FloatingButtonWidget(
           onTapPlus: () {
-            AppDialogState().showAccountDialog(context);
+            //CustomAppDialogState().showAccountDialog(context);
           },
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
+    );
+  }
+
+  Widget _buildContent(List<Message> messages) {
+    if (messages.isNotEmpty) {
+      return _buildMessage(messages);
+    } else {
+      return _buildEmptyMessages();
+    }
+  }
+
+  Widget _buildEmptyMessages() {
+    return Center(
+      child: Text('You have no messages'),
+    );
+  }
+
+  Widget _buildMessage(List<Message> messages) {
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Container(
+        child: StatefulBuilder(
+          builder: (context, setState) {
+            return ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              itemCount: messages.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: MessageItem(
+                    message: messages[index],
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return Divider();
+              },
+            );
+          },
+        ),
+      ),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fxbo/di/app_di.dart';
-import 'package:fxbo/pages/account_details/account_details_page.dart';
+import 'package:fxbo/pages/accounts_overview/accounts_overview_page.dart';
 import 'package:fxbo/pages/auth/sing_in/sing_in_page.dart';
 import 'package:fxbo/pages/splash/splash_navigator.dart';
 import 'package:fxbo/pages/splash/splash_view_model.dart';
@@ -32,10 +32,10 @@ class _SplashScreenState extends State<SplashScreen> implements SplashNavigator 
   }
 
   @override
-  void goToAccountDetailsPage() {
+  void goToAccountsOverviewPage() {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => AccountDetailsPage(),
+        builder: (context) => AccountsOverviewPage(),
       ),
     );
   }

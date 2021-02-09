@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:fxbo/app_config.dart';
+import 'package:fxbo/repositories/user_repository.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,5 +36,10 @@ abstract class AppModule {
       ),
     );
     return dio;
+  }
+
+  @singleton
+  UserRepository provideUserRepository(SharedPreferences sharedPreferences) {
+    return UserRepository(sharedPreferences);
   }
 }

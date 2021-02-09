@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fxbo/pages/accounts_overview/accounts_overview_page.dart';
 import 'package:fxbo/pages/downloads/downloads_page.dart';
 import 'package:fxbo/widgets/app_bar_widget.dart';
+import 'package:fxbo/widgets/app_button_alternative.dart';
 import 'package:fxbo/widgets/app_drawer.dart';
 import 'package:fxbo/widgets/bottom_app_bar_widget.dart';
 
@@ -87,7 +88,7 @@ class _AccountDetailsPageState extends State<AccountDetailsPage> {
                               ),
                               SizedBox(height: 15.0),
                               Image.asset(
-                                'assets/plusIcon.png',
+                                'assets/ic_done.png',
                                 height: 30.0,
                                 color: Colors.white,
                               ),
@@ -228,8 +229,9 @@ class _AccountDetailsPageState extends State<AccountDetailsPage> {
         SizedBox(
           height: 10.0,
         ),
-        BottomButton(
+        AppButtonBottom(
           text: 'Accounts overview',
+          color: Color(0xFF5CBC47),
           onTap: () {
             Navigator.push(
               context,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppCheckBox extends StatefulWidget {
-  final String text;
+  final String title;
+  final Function(bool) onChanged;
 
   const AppCheckBox({
-    this.text,
+    this.title,
+    this.onChanged,
   });
 
   @override
@@ -12,23 +14,26 @@ class AppCheckBox extends StatefulWidget {
 }
 
 class _AppCheckBoxState extends State<AppCheckBox> {
-  final darkColor = Color(0xFF636363);
-  bool chValue = false;
+  
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return CheckboxListTile(
       contentPadding: EdgeInsets.zero,
       controlAffinity: ListTileControlAffinity.leading,
-      value: chValue,
-      onChanged: (_value) {
+      value: isSelected,
+      onChanged: (value) {
         setState(() {
-          chValue = _value;
+          isSelected = value;
+          widget.onChanged.call(value);
         });
       },
       title: Text(
-        widget.text,
-        style: Theme.of(context).textTheme.headline1.merge(TextStyle(fontSize: 13.0)),
+        widget.title,
+        style: Theme.of(context).textTheme.headline1.merge(
+              TextStyle(fontSize: 13.0),
+            ),
       ),
     );
   }
